@@ -88,37 +88,8 @@
 
                     <!-- SVG Emblem Logo SMK Permata Dunia (Sesuai Desain Asli: Segi Lima Hijau, Bulan Kuning, Ka'bah Hitam, Kitab Putih) -->
                     <div class="w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-                        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm" xmlns="http://www.w3.org/2000/svg" aria-label="Logo SMK Permata Dunia">
-                            <!-- Bingkai Luar Segi Lima Kurva Hijau -->
-                            <path d="M100 8 C115 32, 152 38, 185 68 C172 102, 175 140, 155 178 C122 172, 78 172, 45 178 C25 140, 28 102, 15 68 C48 38, 85 32, 100 8 Z" fill="#157A36" stroke="#0E5826" stroke-width="3"/>
-                            <!-- Garis Aksen Putih Dalam -->
-                            <path d="M100 16 C113 38, 147 43, 176 70 C164 101, 167 136, 149 170 C120 165, 80 165, 51 170 C33 136, 36 101, 24 70 C53 43, 87 38, 100 16 Z" fill="none" stroke="#FFFFFF" stroke-width="3.5"/>
-                            <!-- Lingkaran Tengah Hijau & Cincin Putih -->
-                            <circle cx="100" cy="103" r="62" fill="#FFFFFF"/>
-                            <circle cx="100" cy="103" r="46" fill="#157A36"/>
-                            <!-- Bintang Kiri & Kanan -->
-                            <polygon points="46,103 48,108 53,108 49,111 50,116 46,113 42,116 43,111 39,108 44,108" fill="#157A36"/>
-                            <polygon points="154,103 156,108 161,108 157,111 158,116 154,113 150,116 151,111 147,108 152,108" fill="#157A36"/>
-                            <!-- Bulan Sabit Kuning -->
-                            <path d="M84 74 A18 18 0 1 0 116 74 A14 14 0 1 1 84 74 Z" fill="#FACC15"/>
-                            <!-- Ka'bah Hitam dengan Garis Emas -->
-                            <rect x="93" y="66" width="14" height="15" rx="1.5" fill="#111827"/>
-                            <line x1="93" y1="70" x2="107" y2="70" stroke="#FACC15" stroke-width="1.5"/>
-                            <!-- Kitab Terbuka & Rehal Putih -->
-                            <path d="M74 122 Q87 116 100 123 Q113 116 126 122 L123 131 Q112 126 100 132 Q88 126 77 131 Z" fill="#FFFFFF"/>
-                            <path d="M83 132 L117 144 M117 132 L83 144" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
-                            <!-- Teks Melingkar Atas & Bawah -->
-                            <defs>
-                                <path id="topArc" d="M 48,103 A 52,52 0 1,1 152,103"/>
-                                <path id="bottomArc" d="M 46,108 A 54,54 0 0,0 154,108"/>
-                            </defs>
-                            <text font-size="8.2" font-weight="800" fill="#157A36" letter-spacing="0.5">
-                                <textPath href="#topArc" startOffset="50%" text-anchor="middle">YP. DARUL MUKHLISHIN INDONESIA</textPath>
-                            </text>
-                            <text font-size="9.5" font-weight="800" fill="#157A36" letter-spacing="0.8">
-                                <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">SMK PERMATA DUNIA</textPath>
-                            </text>
-                        </svg>
+                        <!-- Ganti <svg> dengan <img> seperti di bawah ini -->
+<img src="LOGO SMK.png" alt="Logo SMK Permata Dunia" class="w-12 h-12 rounded-full object-contain bg-white p-0.5 shadow-sm">
                     </div>
 
                     <div>
@@ -371,8 +342,7 @@
 
         <!-- =====================================================================
              4. BAGIAN PROGRAM UNGGULAN / KOMPETENSI KEAHLIAN (JURUSAN)
-             Catatan VS Code: Nama jurusan dan deskripsi di bawah dapat Anda 
-             sesuaikan dengan kompetensi keahlian yang dibuka di sekolah.
+             Tiga Kompetensi Keahlian Utama: TJKT, AKL, dan Bisnis Daring & Pemasaran
         ====================================================================== -->
         <section id="program" class="py-20 bg-gray-50 border-y border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -385,78 +355,90 @@
                     </p>
                 </div>
 
-                <!-- Grid Kartu Jurusan -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+                <!-- Grid 3 Kartu Jurusan Utama (Proporsional di Desktop, Tablet, & Mobile) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     
                     <!-- Jurusan 1: TJKT -->
-                    <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
                         <div>
-                            <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-network-wired"></i>
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl shadow-sm">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-permata-greenLight text-permata-green text-xs font-extrabold">TJKT</span>
                             </div>
                             <span class="text-xs font-bold text-permata-green uppercase tracking-wider">Teknologi Informasi</span>
-                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Teknik Jaringan Komputer & Telekomunikasi (TJKT)</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                                Mempelajari perakitan komputer, administrasi server, jaringan fiber optik, keamanan siber dasar, serta konfigurasi perangkat jaringan modern.
+                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Teknik Jaringan Komputer dan Telekomunikasi</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                                Mempelajari instalasi jaringan fiber optik, administrasi server, keamanan jaringan (network security), perakitan perangkat keras, serta dasar cloud computing.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-gray-100">
-                            <p class="text-xs font-semibold text-gray-500 mb-1">Prospek Karier:</p>
-                            <p class="text-xs font-bold text-permata-black">Network Engineer, IT Support, Teknisi Jaringan</p>
+                        <div class="pt-5 border-t border-gray-100 bg-gray-50/80 -mx-8 -mb-8 p-6 rounded-b-3xl">
+                            <p class="text-xs font-bold text-permata-green uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <span>Prospek Karier Lulusan:</span>
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> Network Engineer & Teknisi Fiber Optik</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> IT Support Specialist & System Administrator</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> Wirausaha Layanan IT & Infrastruktur Jaringan</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <!-- Jurusan 2: MPLB / OTKP -->
-                    <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+                    <!-- Jurusan 2: AKL -->
+                    <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
                         <div>
-                            <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-building-user"></i>
-                            </div>
-                            <span class="text-xs font-bold text-permata-green uppercase tracking-wider">Manajemen Perkantoran</span>
-                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Manajemen Perkantoran & Layanan Bisnis (MPLB)</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                                Menguasai korespondensi modern, pengarsipan digital, aplikasi perkantoran, pelayanan prima (customer service), dan tata kelola administrasi perusahaan.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-gray-100">
-                            <p class="text-xs font-semibold text-gray-500 mb-1">Prospek Karier:</p>
-                            <p class="text-xs font-bold text-permata-black">Staf Administrasi, Sekretaris, Resepsionis, HR Admin</p>
-                        </div>
-                    </div>
-
-                    <!-- Jurusan 3: AKL -->
-                    <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-                        <div>
-                            <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-calculator"></i>
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl shadow-sm">
+                                    <i class="fa-solid fa-calculator"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-permata-greenLight text-permata-green text-xs font-extrabold">AKL</span>
                             </div>
                             <span class="text-xs font-bold text-permata-green uppercase tracking-wider">Keuangan & Akuntansi</span>
-                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Akuntansi & Keuangan Lembaga (AKL)</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                                Mendalami penyusunan laporan keuangan perusahaan jasa dan dagang, perpajakan dasar, perbankan syariah, serta komputer akuntansi (MYOB/Accurate).
+                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Akuntansi dan Keuangan Lembaga</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                                Mendalami penyusunan laporan keuangan perusahaan dan lembaga, administrasi perpajakan, audit dasar, serta pengoperasian aplikasi akuntansi digital (MYOB, Accurate, & Spreadsheet).
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-gray-100">
-                            <p class="text-xs font-semibold text-gray-500 mb-1">Prospek Karier:</p>
-                            <p class="text-xs font-bold text-permata-black">Staf Akunting, Kasir/Teller Bank, Admin Keuangan</p>
+                        <div class="pt-5 border-t border-gray-100 bg-gray-50/80 -mx-8 -mb-8 p-6 rounded-b-3xl">
+                            <p class="text-xs font-bold text-permata-green uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <span>Prospek Karier Lulusan:</span>
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> Staf Akuntansi (Accounting Staff) & Staf Pajak</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> Kasir, Teller Perbankan & Admin Keuangan</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> Auditor Junior & Pengelola Keuangan UMKM</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <!-- Jurusan 4: Pemasaran / BDP -->
-                    <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+                    <!-- Jurusan 3: BDP -->
+                    <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
                         <div>
-                            <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl mb-6">
-                                <i class="fa-solid fa-bullhorn"></i>
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl shadow-sm">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-permata-greenLight text-permata-green text-xs font-extrabold">BDP</span>
                             </div>
                             <span class="text-xs font-bold text-permata-green uppercase tracking-wider">Bisnis & Digital</span>
-                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Bisnis Digital & Pemasaran (BDP)</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                                Membekali siswa dengan strategi digital marketing, pengelolaan e-commerce, konten kreatif media sosial, ritel modern, dan kewirausahaan mandiri.
+                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Bisnis Daring dan Pemasaran</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                                Membekali siswa dengan strategi digital marketing, pengelolaan toko online (e-commerce & marketplace), pembuatan konten kreatif promosi, riset pasar, dan layanan pelanggan prima.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-gray-100">
-                            <p class="text-xs font-semibold text-gray-500 mb-1">Prospek Karier:</p>
-                            <p class="text-xs font-bold text-permata-black">Digital Marketer, Social Media Specialist, Wirausahawan</p>
+                        <div class="pt-5 border-t border-gray-100 bg-gray-50/80 -mx-8 -mb-8 p-6 rounded-b-3xl">
+                            <p class="text-xs font-bold text-permata-green uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <span>Prospek Karier Lulusan:</span>
+                            </p>
+                            <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> Digital Marketing Specialist & Sales Executive</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> Social Media & Content Creator</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-permata-green text-[10px]"></i> Admin E-Commerce/Marketplace & Wirausaha Online</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -610,10 +592,10 @@
                                     Juara 2 Lomba Kewirausahaan & Business Plan Pelajar SMK DKI Jakarta
                                 </h3>
                                 <p class="text-gray-600 text-sm line-clamp-3 mb-4">
-                                    Inovasi produk digital dan kuliner halal karya siswa jurusan Bisnis Digital dan Pemasaran sukses memukau dewan juri tingkat provinsi.
+                                    Inovasi produk digital dan kuliner halal karya siswa jurusan Bisnis Daring dan Pemasaran sukses memukau dewan juri tingkat provinsi.
                                 </p>
                             </div>
-                            <button type="button" onclick="openNewsModal('Juara 2 Lomba Kewirausahaan & Business Plan Pelajar SMK DKI Jakarta', 'Prestasi', '08 Oktober 2026', 'Siswa-siswi jurusan Bisnis Digital & Pemasaran SMK Permata Dunia berhasil menyabet Juara 2 pada kompetisi Business Plan Pelajar SMK se-DKI Jakarta melalui konsep pemasaran digital produk UMKM lokal Cengkareng.')" class="inline-flex items-center gap-2 text-sm font-bold text-permata-green hover:text-permata-greenDark">
+                            <button type="button" onclick="openNewsModal('Juara 2 Lomba Kewirausahaan & Business Plan Pelajar SMK DKI Jakarta', 'Prestasi', '08 Oktober 2026', 'Siswa-siswi jurusan Bisnis Daring dan Pemasaran (BDP) SMK Permata Dunia berhasil menyabet Juara 2 pada kompetisi Business Plan Pelajar SMK se-DKI Jakarta melalui konsep pemasaran digital produk UMKM lokal Cengkareng.')" class="inline-flex items-center gap-2 text-sm font-bold text-permata-green hover:text-permata-greenDark">
                                 <span>Baca Selengkapnya</span>
                                 <i class="fa-solid fa-arrow-right text-xs"></i>
                             </button>
@@ -704,11 +686,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- Foto 1 -->
-                    <div onclick="openLightbox('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85', 'Praktik Laboratorium Komputer & Jaringan SMK Permata Dunia')" class="group relative rounded-3xl overflow-hidden bg-permata-black aspect-[4/3] cursor-pointer shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/600x450/157A36/FFFFFF?text=Praktik+Lab+Komputer'" alt="Praktik Lab Komputer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80">
+                    <div onclick="openLightbox('Kegiatan LDKS siswa.JPG', 'LDKS Latihan Dasar Kepemimpinan Siswa SMK Permata Dunia')" class="group relative rounded-3xl overflow-hidden bg-permata-black aspect-[4/3] cursor-pointer shadow-sm">
+                        <img src="Kegiatan LDKS siswa.JPG" onerror="this.src='https://placehold.co/600x450/157A36/FFFFFF?text=Praktik+Lab+Komputer'" alt="Praktik Lab Komputer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-permata-yellow text-xs font-bold uppercase">Laboratorium</span>
-                            <h4 class="text-white font-heading font-bold text-base">Praktik Komputer & Jaringan</h4>
+                            <span class="text-permata-yellow text-xs font-bold uppercase"></span>
+                            <h4 class="text-white font-heading font-bold text-base">LDKS Latihan Dasar Kepemimpinan Siswa SMK Permata Dunia</h4>
                         </div>
                     </div>
 
@@ -770,28 +752,28 @@
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="inline-block px-3.5 py-1 rounded-full bg-permata-greenLight text-permata-green font-bold text-xs uppercase tracking-wider mb-3">Hubungi Kami</span>
                     <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-black mb-4">Informasi Kontak & Pendaftaran</h2>
-                    <p class="text-gray-600 text-base sm:text-lg">
-                        Punya pertanyaan seputar jurusan, biaya pendidikan, atau pendaftaran siswa baru (PPDB)? Silakan hubungi kami atau isi formulir di bawah ini.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-                    
-                    <!-- Kolom Kiri: Kartu Info Kontak & Peta -->
-                    <div class="lg:col-span-5 space-y-6">
-                        <div class="bg-permata-green text-white rounded-3xl p-8 shadow-lg">
-                            <h3 class="font-heading text-xl font-extrabold mb-6 text-permata-yellow">Kontak Resmi Sekolah</h3>
-                            
-                            <div class="space-y-5">
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center flex-shrink-0 text-permata-yellow">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
+                                <!-- Pilihan Keperluan / Subjek & Minat Jurusan -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div>
-                                        <p class="text-xs text-gray-200 uppercase font-semibold">Alamat Sekolah</p>
-                                        <p class="text-sm font-medium leading-relaxed mt-0.5">
-                                            Pedongkelan Belakang No 46 RT 006/016, Kel. Kapuk, Kec. Cengkareng, Jakarta Barat
-                                        </p>
+                                        <label for="subjek" class="block text-sm font-bold text-permata-black mb-1.5">Keperluan / Topik <span class="text-red-600">*</span></label>
+                                        <select id="subjek" name="subjek" class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-sm focus:outline-none focus:border-permata-green focus:ring-2 focus:ring-permata-green/20 transition-all">
+                                            <option value="">-- Pilih Keperluan Anda --</option>
+                                            <option value="Pendaftaran Siswa Baru (PPDB)">Pendaftaran Siswa Baru (PPDB)</option>
+                                            <option value="Informasi Jurusan & Biaya">Informasi Jurusan & Biaya Pendidikan</option>
+                                            <option value="Kerja Sama Industri / PKL">Kerja Sama Industri / PKL</option>
+                                            <option value="Pertanyaan Umum">Pertanyaan Umum Lainnya</option>
+                                        </select>
+                                        <p id="error-subjek" class="hidden text-xs text-red-600 font-medium mt-1">Silakan pilih salah satu topik keperluan.</p>
+                                    </div>
+
+                                    <div>
+                                        <label for="jurusan-minat" class="block text-sm font-bold text-permata-black mb-1.5">Minat Kompetensi Keahlian</label>
+                                        <select id="jurusan-minat" name="jurusan" class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-sm focus:outline-none focus:border-permata-green focus:ring-2 focus:ring-permata-green/20 transition-all">
+                                            <option value="Belum Memilih">-- Opsional: Pilih Jurusan --</option>
+                                            <option value="TJKT (Teknik Jaringan Komputer & Telekomunikasi)">TJKT (Teknik Jaringan Komputer & Telekomunikasi)</option>
+                                            <option value="AKL (Akuntansi & Keuangan Lembaga)">AKL (Akuntansi & Keuangan Lembaga)</option>
+                                            <option value="BDP (Bisnis Daring & Pemasaran)">BDP (Bisnis Daring & Pemasaran)</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -917,8 +899,8 @@
                 <!-- Kolom 1: Identitas Sekolah -->
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-permata-green flex items-center justify-center text-permata-yellow font-heading font-extrabold text-lg">
-                            PD
+                        <!-- Ganti <svg> dengan <img> seperti di bawah ini -->
+<img src="LOGO SMK.png" alt="Logo SMK Permata Dunia" class="w-12 h-12 rounded-full object-contain bg-white p-0.5 shadow-sm">
                         </div>
                         <div>
                             <span class="block text-[10px] font-bold tracking-wider text-permata-yellow uppercase">YP. Darul Mukhlishin Indonesia</span>
@@ -1174,6 +1156,7 @@
                     const namaInput = document.getElementById('nama');
                     const kontakInput = document.getElementById('kontak-pengirim');
                     const subjekInput = document.getElementById('subjek');
+                    const jurusanInput = document.getElementById('jurusan-minat');
                     const pesanInput = document.getElementById('pesan');
 
                     const errorNama = document.getElementById('error-nama');
@@ -1225,7 +1208,10 @@
 
                     // Jika semua valid, tampilkan kotak pesan konfirmasi sukses
                     if (isValid) {
-                        successText.innerHTML = `Terima kasih <strong>${namaInput.value.trim()}</strong>. Pertanyaan Anda terkait <strong>${subjekInput.value}</strong> telah kami terima. Tim SMK Permata Dunia akan segera menghubungi nomor/email <strong>${kontakInput.value.trim()}</strong>.`;
+                        const infoJurusan = jurusanInput && jurusanInput.value !== 'Belum Memilih' 
+                            ? ` (Minat Jurusan: <strong>${jurusanInput.value}</strong>)` 
+                            : '';
+                        successText.innerHTML = `Terima kasih <strong>${namaInput.value.trim()}</strong>. Pertanyaan Anda terkait <strong>${subjekInput.value}</strong>${infoJurusan} telah kami terima. Tim SMK Permata Dunia akan segera menghubungi nomor/email <strong>${kontakInput.value.trim()}</strong>.`;
                         successBox.classList.remove('hidden');
                         contactForm.reset();
                         successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
