@@ -1,931 +1,1269 @@
-
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Website resmi Yayasan Pendidikan Generasi Bangsa. Informasi TK, SD, SMP, SMK, kegiatan sekolah, dan PPDB.">
-  <title>Yayasan Pendidikan Darul Mukhlishin Indonesia</title>
-
-  <style>
-    :root {
-      --primary: #124b3b;
-      --primary-light: #1c6a52;
-      --accent: #e9b949;
-      --cream: #f7f7f0;
-      --white: #ffffff;
-      --text: #24342e;
-      --muted: #64736c;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      line-height: 1.7;
-      background: var(--white);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: var(--white);
-      border-bottom: 1px solid #e5eae5;
-    }
-
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--primary);
-      font-weight: 800;
-      line-height: 1.3;
-    }
-
-    .brand-icon {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: white;
-      border-radius: 12px;
-      font-size: 23px;
-    }
-
-    .brand small {
-      display: block;
-      font-size: 11px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 23px;
-      list-style: none;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-light);
-    }
-
-    .nav-cta, .button {
-      display: inline-block;
-      background: var(--accent);
-      color: #24342e;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      border: 0;
-      font-size: 27px;
-      cursor: pointer;
-      color: var(--primary);
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at 85% 15%, #39785d 0, transparent 35%),
-        linear-gradient(125deg, #103c31, #176249);
-      color: white;
-      padding: 95px 0 90px;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 55px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid #ffffff55;
-      border-radius: 30px;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: clamp(36px, 5vw, 57px);
-      line-height: 1.13;
-      letter-spacing: -1.5px;
-      margin-bottom: 22px;
-    }
-
-    .hero p {
-      color: #e0eee7;
-      max-width: 580px;
-      margin-bottom: 28px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .button-outline {
-      display: inline-block;
-      padding: 11px 20px;
-      border: 1px solid #ffffff88;
-      border-radius: 8px;
-      font-weight: 700;
-    }
-
-    .hero-visual {
-      min-height: 330px;
-      border-radius: 24px;
-      background: linear-gradient(145deg, #f0d995, #d2e5cf);
-      color: var(--primary);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 30px;
-      box-shadow: 0 25px 70px #061f1733;
-    }
-
-    .hero-visual .symbol {
-      font-size: 90px;
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    .hero-visual h2 {
-      font-size: 25px;
-      line-height: 1.3;
-    }
-
-    .hero-visual p {
-      color: #315447;
-      margin: 8px 0 0;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: -1px;
-      padding: 28px 0;
-      background: var(--cream);
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--primary);
-      font-size: 25px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    section {
-      padding: 78px 0;
-    }
-
-    .section-heading {
-      max-width: 660px;
-      margin: 0 auto 38px;
-      text-align: center;
-    }
-
-    .section-heading .tag {
-      color: var(--primary-light);
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      font-size: 12px;
-    }
-
-    h2.section-title {
-      font-size: clamp(27px, 4vw, 37px);
-      color: var(--primary);
-      line-height: 1.25;
-      margin: 10px 0 14px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 45px;
-      align-items: center;
-    }
-
-    .about-panel {
-      background: var(--cream);
-      border-radius: 20px;
-      padding: 34px;
-      border-left: 5px solid var(--accent);
-    }
-
-    .about-panel h3 {
-      color: var(--primary);
-      font-size: 23px;
-      margin-bottom: 12px;
-    }
-
-    .about-panel p {
-      color: var(--muted);
-    }
-
-    .values {
-      display: grid;
-      gap: 16px;
-    }
-
-    .value-item {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-    }
-
-    .value-icon {
-      flex-shrink: 0;
-      background: #e8f2e9;
-      color: var(--primary);
-      border-radius: 10px;
-      padding: 9px 12px;
-      font-size: 21px;
-    }
-
-    .value-item h3 {
-      font-size: 17px;
-      margin-bottom: 3px;
-    }
-
-    .value-item p {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .schools {
-      background: var(--cream);
-    }
-
-    .school-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .school-card {
-      background: white;
-      border: 1px solid #e7ebe5;
-      padding: 25px 21px;
-      border-radius: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .school-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 30px #123b2710;
-    }
-
-    .school-icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      background: #e8f2e9;
-      border-radius: 14px;
-      font-size: 27px;
-      margin-bottom: 18px;
-    }
-
-    .school-card h3 {
-      color: var(--primary);
-      margin-bottom: 8px;
-      font-size: 20px;
-    }
-
-    .school-card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 17px;
-    }
-
-    .text-link {
-      color: var(--primary-light);
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .news-card {
-      border: 1px solid #e6eae5;
-      border-radius: 15px;
-      overflow: hidden;
-      background: white;
-    }
-
-    .news-image {
-      height: 145px;
-      display: grid;
-      place-items: center;
-      font-size: 47px;
-      background: linear-gradient(140deg, #e6eedc, #c8e1d1);
-    }
-
-    .news-body {
-      padding: 21px;
-    }
-
-    .news-body small {
-      color: var(--primary-light);
-      font-weight: 700;
-    }
-
-    .news-body h3 {
-      font-size: 18px;
-      line-height: 1.4;
-      margin: 8px 0;
-    }
-
-    .news-body p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .ppdb {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-    }
-
-    .ppdb h2 {
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.25;
-      margin-bottom: 15px;
-    }
-
-    .ppdb p {
-      color: #d7e8df;
-      max-width: 600px;
-      margin: 0 auto 26px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    .contact-info {
-      display: grid;
-      gap: 18px;
-      align-content: start;
-    }
-
-    .contact-item {
-      background: var(--cream);
-      border-radius: 12px;
-      padding: 20px;
-    }
-
-    .contact-item h3 {
-      color: var(--primary);
-      font-size: 16px;
-    }
-
-    .contact-item p {
-      color: var(--muted);
-      font-size: 14px;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-note {
-      border: 1px solid #e4e9e2;
-      padding: 25px;
-      border-radius: 15px;
-    }
-
-    .contact-note h3 {
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-
-    .contact-note p {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    footer {
-      background: #0b2d24;
-      color: #e1eee7;
-      padding: 28px 0;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    footer p + p {
-      margin-top: 5px;
-      color: #b8cfc3;
-    }
-
-    @media (max-width: 900px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 76px;
-        left: 0;
-        right: 0;
-        padding: 22px 5%;
-        background: white;
-        border-bottom: 1px solid #e5eae5;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .hero-content {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
-        min-height: 250px;
-      }
-
-      .school-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero {
-        padding: 65px 0;
-      }
-
-      section {
-        padding: 55px 0;
-      }
-
-      .stats {
-        gap: 8px;
-        padding: 20px 0;
-      }
-
-      .stat strong {
-        font-size: 20px;
-      }
-
-      .stat span {
-        font-size: 11px;
-      }
-
-      .school-grid,
-      .news-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-visual {
-        padding: 22px;
-      }
-
-      .about-panel {
-        padding: 25px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK PERMATA DUNIA - YP. Darul Mukhlishin Indonesia</title>
+    <meta name="description" content="Website Resmi SMK Permata Dunia - YP. Darul Mukhlishin Indonesia, Kapuk, Cengkareng, Jakarta Barat. Mencetak generasi unggul, berakhlak mulia, dan siap kerja.">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Inter untuk tipografi modern dan mudah dibaca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN untuk ikon-ikon UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Konfigurasi Warna Kustom Tailwind sesuai Logo SMK Permata Dunia (Hijau, Kuning, Hitam, Putih) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        permata: {
+                            green: '#157A36',      // Hijau Utama Logo
+                            greenDark: '#0E5826',  // Hijau Gelap untuk hover & latar
+                            greenLight: '#E8F5EC', // Hijau Lembut untuk aksen latar
+                            yellow: '#FACC15',     // Kuning Cerah Logo
+                            yellowHover: '#EAB308',// Kuning Emas untuk hover
+                            black: '#111827',      // Hitam Pekat
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Gaya Kustom Tambahan untuk Transisi & Efek Halus -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #111827;
+            background-color: #FFFFFF;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        /* Pola latar geometris halus pada Hero Section */
+        .hero-pattern {
+            background-color: #0E5826;
+            background-image: radial-gradient(rgba(250, 204, 21, 0.14) 1.5px, transparent 1.5px),
+                              radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, #0E5826 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        /* Transisi kartu berita saat difilter */
+        .news-card {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .news-card.hidden-item {
+            display: none;
+        }
+    </style>
 </head>
+<body class="antialiased selection:bg-permata-yellow selection:text-permata-black">
 
-<body>
-  <header>
-    <nav class="navbar container" aria-label="Navigasi utama">
-      <a href="#beranda" class="brand">
-        <span class="brand-icon">✦</span>
-        <span>
-          YAYASAN PENDIDIKAN DARUL MUKHLSIHIN INDONESIA
-          <small>YPDMI</small>
-        </span>
-      </a>
+    <!-- =====================================================================
+         1. NAVBAR RESPONSIF (STICKY TOP)
+    ====================================================================== -->
+    <header id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Identitas & Logo Sekolah -->
+                <a href="#beranda" class="flex items-center gap-3 group focus:outline-none">
+                    <!-- =========================================================
+                         PANDUAN GANTI LOGO DI VS CODE:
+                         Jika Anda ingin menggunakan file gambar lokal 'LOGO SMK.jpg',
+                         hapus komentar pada tag <img> di bawah dan sembunyikan <svg>.
+                    ========================================================== -->
+                    <!-- <img src="LOGO SMK.jpg" alt="Logo SMK Permata Dunia" class="w-12 h-12 object-contain rounded-full"> -->
 
-      <button class="menu-toggle"
-        id="menuToggle"
-        aria-label="Buka menu navigasi"
-        aria-expanded="false">☰</button>
+                    <!-- SVG Emblem Logo SMK Permata Dunia (Sesuai Desain Asli: Segi Lima Hijau, Bulan Kuning, Ka'bah Hitam, Kitab Putih) -->
+                    <div class="w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm" xmlns="http://www.w3.org/2000/svg" aria-label="Logo SMK Permata Dunia">
+                            <!-- Bingkai Luar Segi Lima Kurva Hijau -->
+                            <path d="M100 8 C115 32, 152 38, 185 68 C172 102, 175 140, 155 178 C122 172, 78 172, 45 178 C25 140, 28 102, 15 68 C48 38, 85 32, 100 8 Z" fill="#157A36" stroke="#0E5826" stroke-width="3"/>
+                            <!-- Garis Aksen Putih Dalam -->
+                            <path d="M100 16 C113 38, 147 43, 176 70 C164 101, 167 136, 149 170 C120 165, 80 165, 51 170 C33 136, 36 101, 24 70 C53 43, 87 38, 100 16 Z" fill="none" stroke="#FFFFFF" stroke-width="3.5"/>
+                            <!-- Lingkaran Tengah Hijau & Cincin Putih -->
+                            <circle cx="100" cy="103" r="62" fill="#FFFFFF"/>
+                            <circle cx="100" cy="103" r="46" fill="#157A36"/>
+                            <!-- Bintang Kiri & Kanan -->
+                            <polygon points="46,103 48,108 53,108 49,111 50,116 46,113 42,116 43,111 39,108 44,108" fill="#157A36"/>
+                            <polygon points="154,103 156,108 161,108 157,111 158,116 154,113 150,116 151,111 147,108 152,108" fill="#157A36"/>
+                            <!-- Bulan Sabit Kuning -->
+                            <path d="M84 74 A18 18 0 1 0 116 74 A14 14 0 1 1 84 74 Z" fill="#FACC15"/>
+                            <!-- Ka'bah Hitam dengan Garis Emas -->
+                            <rect x="93" y="66" width="14" height="15" rx="1.5" fill="#111827"/>
+                            <line x1="93" y1="70" x2="107" y2="70" stroke="#FACC15" stroke-width="1.5"/>
+                            <!-- Kitab Terbuka & Rehal Putih -->
+                            <path d="M74 122 Q87 116 100 123 Q113 116 126 122 L123 131 Q112 126 100 132 Q88 126 77 131 Z" fill="#FFFFFF"/>
+                            <path d="M83 132 L117 144 M117 132 L83 144" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+                            <!-- Teks Melingkar Atas & Bawah -->
+                            <defs>
+                                <path id="topArc" d="M 48,103 A 52,52 0 1,1 152,103"/>
+                                <path id="bottomArc" d="M 46,108 A 54,54 0 0,0 154,108"/>
+                            </defs>
+                            <text font-size="8.2" font-weight="800" fill="#157A36" letter-spacing="0.5">
+                                <textPath href="#topArc" startOffset="50%" text-anchor="middle">YP. DARUL MUKHLISHIN INDONESIA</textPath>
+                            </text>
+                            <text font-size="9.5" font-weight="800" fill="#157A36" letter-spacing="0.8">
+                                <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">SMK PERMATA DUNIA</textPath>
+                            </text>
+                        </svg>
+                    </div>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#beranda">Beranda</a></li>
-        <li><a href="#profil">Profil</a></li>
-        <li><a href="#sekolah">Sekolah</a></li>
-        <li><a href="#berita">Berita</a></li>
-        <li><a href="#kontak">Kontak</a></li>
-        <li><a class="nav-cta" href="#ppdb">Info PPDB</a></li>
-      </ul>
-    </nav>
-  </header>
+                    <div>
+                        <span class="block text-[11px] font-semibold tracking-wider text-permata-green uppercase">YP. Darul Mukhlishin Indonesia</span>
+                        <span class="block font-heading text-lg sm:text-xl font-extrabold text-permata-black leading-tight">SMK PERMATA DUNIA</span>
+                    </div>
+                </a>
 
-  <main>
-    <section class="hero" id="beranda">
-      <div class="container hero-content">
-        <div>
-          <span class="eyebrow">Pendidikan untuk Masa Depan</span>
-          <h1>Membangun Generasi Cerdas, Berkarakter, dan Berprestasi</h1>
-          <p>
-            Yayasan Pendidikan Generasi Bangsa berkomitmen mendampingi
-            setiap peserta didik untuk tumbuh, berkarya, dan meraih masa
-            depan melalui pendidikan berkualitas dari TK hingga SMK.
-          </p>
-          <div class="hero-buttons">
-            <a class="button" href="#sekolah">Jelajahi Sekolah →</a>
-            <a class="button-outline" href="#profil">Tentang Yayasan</a>
-          </div>
+                <!-- Menu Navigasi Desktop -->
+                <nav class="hidden lg:flex items-center space-x-7" aria-label="Navigasi Utama">
+                    <a href="#beranda" class="nav-link text-sm font-semibold text-permata-green transition-colors">Beranda</a>
+                    <a href="#profil" class="nav-link text-sm font-medium text-gray-700 hover:text-permata-green transition-colors">Profil</a>
+                    <a href="#program" class="nav-link text-sm font-medium text-gray-700 hover:text-permata-green transition-colors">Program/Jurusan</a>
+                    <a href="#berita" class="nav-link text-sm font-medium text-gray-700 hover:text-permata-green transition-colors">Berita/Prestasi</a>
+                    <a href="#galeri" class="nav-link text-sm font-medium text-gray-700 hover:text-permata-green transition-colors">Galeri</a>
+                    <a href="#kontak" class="nav-link text-sm font-medium text-gray-700 hover:text-permata-green transition-colors">Kontak</a>
+                </nav>
+
+                <!-- Tombol Aksi PPDB Desktop -->
+                <div class="hidden lg:flex items-center">
+                    <a href="#kontak" class="inline-flex items-center gap-2 bg-permata-yellow hover:bg-permata-yellowHover text-permata-black font-bold text-sm px-5 py-2.5 rounded-xl shadow-sm transition-all duration-200 hover:shadow-md">
+                        <span>Info PPDB</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Tombol Hamburger Mobile / Tablet -->
+                <div class="flex lg:hidden">
+                    <button id="mobile-menu-btn" type="button" class="p-2.5 rounded-xl text-permata-black hover:bg-permata-greenLight hover:text-permata-green focus:outline-none transition-colors" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Buka menu utama</span>
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div class="hero-visual">
-          <div>
-            <span class="eyebrow" style="border-color:#31544755">
-              Empat Jenjang Pendidikan
-            </span>
-            <div class="symbol">🎓</div>
-          </div>
-          <div>
-            <h2>Satu Yayasan, Banyak Peluang</h2>
-            <p>Belajar · Bertumbuh · Berprestasi</p>
-          </div>
+        <!-- Dropdown Menu Mobile/Tablet -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-lg">
+            <div class="px-4 pt-3 pb-5 space-y-1.5">
+                <a href="#beranda" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-semibold text-permata-green bg-permata-greenLight">Beranda</a>
+                <a href="#profil" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-permata-green">Profil</a>
+                <a href="#program" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-permata-green">Program / Jurusan</a>
+                <a href="#berita" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-permata-green">Berita & Prestasi</a>
+                <a href="#galeri" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-permata-green">Galeri Kegiatan</a>
+                <a href="#kontak" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-permata-green">Kontak & Lokasi</a>
+                <div class="pt-2">
+                    <a href="#kontak" class="mobile-nav-link flex items-center justify-center gap-2 w-full bg-permata-yellow hover:bg-permata-yellowHover text-permata-black font-bold py-3 px-4 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span>Daftar PPDB Sekarang</span>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <div class="stats">
-      <div class="container" style="display:contents">
-        <div class="stat">
-          <strong>4 Jenjang</strong>
-          <span>RA AL MUKHLSIHIN, SDI AL MUKHLSIHIN, SMP DARUL MUKHLISHIN, dan SMK PERMATA DUNIA</span>
+    <main>
+        <!-- =====================================================================
+             2. HERO SECTION
+        ====================================================================== -->
+        <section id="beranda" class="relative hero-pattern text-white overflow-hidden">
+            <!-- Dekorasi Cahaya Kuning & Hijau -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-permata-yellow/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-black/30 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Kolom Kiri: Teks Sambutan & CTA -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-permata-yellow/40 text-permata-yellow text-xs sm:text-sm font-semibold mb-6">
+                            <i class="fa-solid fa-star text-xs"></i>
+                            <span>YP. Darul Mukhlishin Indonesia • Cengkareng, Jakarta Barat</span>
+                        </div>
+
+                        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                            Mencetak Generasi <span class="text-permata-yellow">Unggul, Berakhlak</span> & Siap Kerja
+                        </h1>
+
+                        <p class="text-gray-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8">
+                            Selamat datang di <strong class="text-white">SMK PERMATA DUNIA</strong>. Kami memadukan pendidikan kejuruan berbasis teknologi dan industri modern dengan pembinaan karakter Islami yang kokoh untuk masa depan gemilang.
+                        </p>
+
+                        <!-- Tombol Ajakan (CTA) -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#kontak" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-permata-yellow hover:bg-permata-yellowHover text-permata-black font-bold px-7 py-4 rounded-xl shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5">
+                                <span>Daftar Sekarang / Hubungi Kami</span>
+                                <i class="fa-solid fa-paper-plane text-sm"></i>
+                            </a>
+                            <a href="#program" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/25 font-semibold px-7 py-4 rounded-xl transition-all duration-200">
+                                <span>Jelajahi Jurusan</span>
+                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                            </a>
+                        </div>
+
+                        <!-- Sorotan Singkat di Bawah CTA -->
+                        <div class="mt-10 pt-8 border-t border-white/15 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-left">
+                            <div>
+                                <p class="text-permata-yellow font-heading font-extrabold text-xl sm:text-2xl">100%</p>
+                                <p class="text-xs sm:text-sm text-gray-300">Praktik Kejuruan</p>
+                            </div>
+                            <div>
+                                <p class="text-permata-yellow font-heading font-extrabold text-xl sm:text-2xl">Islami</p>
+                                <p class="text-xs sm:text-sm text-gray-300">Pembinaan Karakter</p>
+                            </div>
+                            <div>
+                                <p class="text-permata-yellow font-heading font-extrabold text-xl sm:text-2xl">Mitra DUDI</p>
+                                <p class="text-xs sm:text-sm text-gray-300">Penyaluran Kerja</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan: Kartu Visual Sekolah -->
+                    <div class="lg:col-span-5">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <!-- Bingkai Aksen Kuning -->
+                            <div class="absolute -inset-2 bg-gradient-to-tr from-permata-yellow to-permata-green rounded-3xl opacity-75 blur-sm"></div>
+                            <div class="relative bg-permata-black rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80" 
+                                    onerror="this.src='https://placehold.co/800x600/157A36/FFFFFF?text=SMK+PERMATA+DUNIA'" 
+                                    alt="Siswa SMK Permata Dunia Belajar Bersama" 
+                                    class="w-full h-72 sm:h-80 object-cover opacity-90"
+                                >
+                                <div class="p-6 bg-permata-black text-white">
+                                    <div class="flex items-center justify-between gap-4">
+                                        <div>
+                                            <span class="inline-block px-3 py-1 rounded-lg bg-permata-green text-xs font-bold text-white mb-2">Penerimaan Peserta Didik Baru</span>
+                                            <h3 class="font-heading font-bold text-lg text-white">Tahun Ajaran 2026 / 2027</h3>
+                                            <p class="text-xs text-gray-400 mt-1">Kapuk, Cengkareng - Jakarta Barat</p>
+                                        </div>
+                                        <div class="w-12 h-12 rounded-2xl bg-permata-yellow text-permata-black flex items-center justify-center flex-shrink-0 font-bold text-xl">
+                                            <i class="fa-solid fa-graduation-cap"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             3. BAGIAN PROFIL SINGKAT (VISI, MISI, & STATISTIK COUNTER)
+        ====================================================================== -->
+        <section id="profil" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Judul Section -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-permata-greenLight text-permata-green font-bold text-xs uppercase tracking-wider mb-3">Profil Sekolah</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-black mb-4">Mengenal Lebih Dekat SMK Permata Dunia</h2>
+                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
+                        Berada di bawah naungan <strong>YP. Darul Mukhlishin Indonesia</strong>, SMK Permata Dunia hadir di Cengkareng, Jakarta Barat sebagai lembaga pendidikan kejuruan yang menyeimbangkan kompetensi keahlian industri dengan nilai-nilai keislaman.
+                    </p>
+                </div>
+
+                <!-- Grid Visi & Misi -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                    <!-- Kartu Visi -->
+                    <div class="bg-permata-greenLight/60 border border-permata-green/20 rounded-3xl p-8 sm:p-10 relative overflow-hidden">
+                        <div class="w-14 h-14 rounded-2xl bg-permata-green text-white flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-extrabold text-permata-black mb-4">Visi Sekolah</h3>
+                        <p class="text-gray-800 text-base sm:text-lg leading-relaxed font-medium">
+                            "Terwujudnya lulusan SMK Permata Dunia yang beriman, bertakwa, berakhlak mulia, kompeten di bidang keahliannya, mandiri, serta mampu bersaing di dunia kerja dan berwirausaha."
+                        </p>
+                        <div class="mt-6 pt-6 border-t border-permata-green/15 flex items-center gap-3 text-sm font-semibold text-permata-green">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Berlandaskan Nilai YP. Darul Mukhlishin Indonesia</span>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Misi -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-3xl p-8 sm:p-10">
+                        <div class="w-14 h-14 rounded-2xl bg-permata-yellow text-permata-black flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-extrabold text-permata-black mb-4">Misi Sekolah</h3>
+                        <ul class="space-y-3.5 text-gray-700 text-sm sm:text-base">
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-permata-green text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                                <span>Menanamkan keimanan, ketakwaan, dan pembiasaan ibadah serta akhlakul karimah dalam kehidupan sehari-hari.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-permata-green text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                                <span>Menyelenggarakan pembelajaran berbasis praktik dan teknologi informasi sesuai standar Dunia Usaha dan Dunia Industri (DUDI).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-permata-green text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                                <span>Mengembangkan jiwa kewirausahaan, kreativitas, dan kedisiplinan peserta didik melalui kegiatan intrakurikuler dan ekstrakurikuler.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-permata-green text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                                <span>Memperluas kemitraan strategis dengan perusahaan dan instansi untuk penyaluran Praktik Kerja Lapangan (PKL) dan rekrutmen lulusan.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Panel Statistik Ringkas dengan Animasi Counter JavaScript -->
+                <div id="stats-section" class="bg-permata-black rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                        <div class="p-4">
+                            <div class="w-12 h-12 rounded-2xl bg-permata-green/30 text-permata-yellow flex items-center justify-center mx-auto mb-3 text-xl">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-yellow">
+                                <span class="counter" data-target="450">0</span>+
+                            </div>
+                            <p class="text-sm text-gray-300 mt-1 font-medium">Siswa Aktif</p>
+                        </div>
+
+                        <div class="p-4">
+                            <div class="w-12 h-12 rounded-2xl bg-permata-green/30 text-permata-yellow flex items-center justify-center mx-auto mb-3 text-xl">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                            </div>
+                            <div class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-yellow">
+                                <span class="counter" data-target="38">0</span>+
+                            </div>
+                            <p class="text-sm text-gray-300 mt-1 font-medium">Guru & Staf Profesional</p>
+                        </div>
+
+                        <div class="p-4">
+                            <div class="w-12 h-12 rounded-2xl bg-permata-green/30 text-permata-yellow flex items-center justify-center mx-auto mb-3 text-xl">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-yellow">
+                                <span class="counter" data-target="65">0</span>+
+                            </div>
+                            <p class="text-sm text-gray-300 mt-1 font-medium">Prestasi & Penghargaan</p>
+                        </div>
+
+                        <div class="p-4">
+                            <div class="w-12 h-12 rounded-2xl bg-permata-green/30 text-permata-yellow flex items-center justify-center mx-auto mb-3 text-xl">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-yellow">
+                                <span class="counter" data-target="92">0</span>%
+                            </div>
+                            <p class="text-sm text-gray-300 mt-1 font-medium">Keterserapan Kerja & Kuliah</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             4. BAGIAN PROGRAM UNGGULAN / KOMPETENSI KEAHLIAN (JURUSAN)
+             Catatan VS Code: Nama jurusan dan deskripsi di bawah dapat Anda 
+             sesuaikan dengan kompetensi keahlian yang dibuka di sekolah.
+        ====================================================================== -->
+        <section id="program" class="py-20 bg-gray-50 border-y border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-permata-yellow text-permata-black font-bold text-xs uppercase tracking-wider mb-3">Kompetensi Keahlian</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-black mb-4">Program Keahlian Unggulan</h2>
+                    <p class="text-gray-600 text-base sm:text-lg">
+                        Kurikulum terpadu yang dirancang khusus untuk membekali siswa dengan keterampilan praktis, sertifikasi kompetensi, dan kesiapan menghadapi dunia industri modern.
+                    </p>
+                </div>
+
+                <!-- Grid Kartu Jurusan -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+                    
+                    <!-- Jurusan 1: TJKT -->
+                    <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <span class="text-xs font-bold text-permata-green uppercase tracking-wider">Teknologi Informasi</span>
+                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Teknik Jaringan Komputer & Telekomunikasi (TJKT)</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                                Mempelajari perakitan komputer, administrasi server, jaringan fiber optik, keamanan siber dasar, serta konfigurasi perangkat jaringan modern.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                            <p class="text-xs font-semibold text-gray-500 mb-1">Prospek Karier:</p>
+                            <p class="text-xs font-bold text-permata-black">Network Engineer, IT Support, Teknisi Jaringan</p>
+                        </div>
+                    </div>
+
+                    <!-- Jurusan 2: MPLB / OTKP -->
+                    <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-building-user"></i>
+                            </div>
+                            <span class="text-xs font-bold text-permata-green uppercase tracking-wider">Manajemen Perkantoran</span>
+                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Manajemen Perkantoran & Layanan Bisnis (MPLB)</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                                Menguasai korespondensi modern, pengarsipan digital, aplikasi perkantoran, pelayanan prima (customer service), dan tata kelola administrasi perusahaan.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                            <p class="text-xs font-semibold text-gray-500 mb-1">Prospek Karier:</p>
+                            <p class="text-xs font-bold text-permata-black">Staf Administrasi, Sekretaris, Resepsionis, HR Admin</p>
+                        </div>
+                    </div>
+
+                    <!-- Jurusan 3: AKL -->
+                    <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-calculator"></i>
+                            </div>
+                            <span class="text-xs font-bold text-permata-green uppercase tracking-wider">Keuangan & Akuntansi</span>
+                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Akuntansi & Keuangan Lembaga (AKL)</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                                Mendalami penyusunan laporan keuangan perusahaan jasa dan dagang, perpajakan dasar, perbankan syariah, serta komputer akuntansi (MYOB/Accurate).
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                            <p class="text-xs font-semibold text-gray-500 mb-1">Prospek Karier:</p>
+                            <p class="text-xs font-bold text-permata-black">Staf Akunting, Kasir/Teller Bank, Admin Keuangan</p>
+                        </div>
+                    </div>
+
+                    <!-- Jurusan 4: Pemasaran / BDP -->
+                    <div class="bg-white rounded-3xl p-7 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-permata-green text-white group-hover:bg-permata-yellow group-hover:text-permata-black transition-colors flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                            <span class="text-xs font-bold text-permata-green uppercase tracking-wider">Bisnis & Digital</span>
+                            <h3 class="font-heading text-xl font-extrabold text-permata-black mt-1 mb-3">Bisnis Digital & Pemasaran (BDP)</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                                Membekali siswa dengan strategi digital marketing, pengelolaan e-commerce, konten kreatif media sosial, ritel modern, dan kewirausahaan mandiri.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                            <p class="text-xs font-semibold text-gray-500 mb-1">Prospek Karier:</p>
+                            <p class="text-xs font-bold text-permata-black">Digital Marketer, Social Media Specialist, Wirausahawan</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             5. BAGIAN BERITA & PRESTASI TERBARU (DENGAN FILTER JAVASCRIPT)
+        ====================================================================== -->
+        <section id="berita" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                    <div>
+                        <span class="inline-block px-3.5 py-1 rounded-full bg-permata-greenLight text-permata-green font-bold text-xs uppercase tracking-wider mb-3">Kabar Sekolah</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-black">Berita & Prestasi Terbaru</h2>
+                    </div>
+
+                    <!-- Tombol Filter Kategori (Vanilla JavaScript) -->
+                    <div id="news-filters" class="flex flex-wrap gap-2" role="tablist" aria-label="Filter Berita dan Prestasi">
+                        <button type="button" data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-sm font-bold bg-permata-green text-white shadow-sm transition-all">
+                            Semua
+                        </button>
+                        <button type="button" data-filter="Prestasi" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-permata-greenLight hover:text-permata-green transition-all">
+                            Prestasi
+                        </button>
+                        <button type="button" data-filter="Berita" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-permata-greenLight hover:text-permata-green transition-all">
+                            Berita
+                        </button>
+                        <button type="button" data-filter="Kegiatan" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-permata-greenLight hover:text-permata-green transition-all">
+                            Kegiatan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grid Kartu Berita & Prestasi -->
+                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Item 1: Prestasi -->
+                    <article class="news-card bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg flex flex-col" data-category="Prestasi">
+                        <div class="relative h-52 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=800&q=80" 
+                                onerror="this.src='https://placehold.co/600x400/157A36/FFFFFF?text=Juara+LKS+Jakarta+Barat'" 
+                                alt="Juara LKS Tingkat Jakarta Barat" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                            >
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-permata-yellow text-permata-black text-xs font-extrabold shadow">Prestasi</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>14 November 2026</span>
+                                </div>
+                                <h3 class="font-heading text-lg font-bold text-permata-black mb-2 line-clamp-2">
+                                    Siswa SMK Permata Dunia Raih Juara 1 Lomba Kompetensi Siswa (LKS) Jakarta Barat
+                                </h3>
+                                <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                                    Tim perwakilan jurusan TKJ berhasil meraih predikat terbaik dalam ajang LKS bidang IT Network Systems Administration tingkat wilayah Jakarta Barat.
+                                </p>
+                            </div>
+                            <button type="button" onclick="openNewsModal('Siswa SMK Permata Dunia Raih Juara 1 Lomba Kompetensi Siswa (LKS) Jakarta Barat', 'Prestasi', '14 November 2026', 'Tim perwakilan jurusan TKJ SMK Permata Dunia berhasil mengharumkan nama sekolah dan YP. Darul Mukhlishin Indonesia dengan meraih Juara 1 dalam ajang Lomba Kompetensi Siswa (LKS) tingkat Kota Administrasi Jakarta Barat. Keberhasilan ini merupakan hasil bimbingan intensif para guru produktif dan fasilitas laboratorium praktik yang memadai.')" class="inline-flex items-center gap-2 text-sm font-bold text-permata-green hover:text-permata-greenDark">
+                                <span>Baca Selengkapnya</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 2: Berita -->
+                    <article class="news-card bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg flex flex-col" data-category="Berita">
+                        <div class="relative h-52 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" 
+                                onerror="this.src='https://placehold.co/600x400/0E5826/FFFFFF?text=PPDB+SMK+Permata+Dunia'" 
+                                alt="Pembukaan PPDB Gelombang Pertama" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                            >
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-permata-green text-white text-xs font-extrabold shadow">Berita</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>02 November 2026</span>
+                                </div>
+                                <h3 class="font-heading text-lg font-bold text-permata-black mb-2 line-clamp-2">
+                                    Penerimaan Peserta Didik Baru (PPDB) Tahun Ajaran 2026/2027 Resmi Dibuka
+                                </h3>
+                                <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                                    SMK Permata Dunia membuka pendaftaran gelombang pertama dengan potongan biaya pendaftaran dan program beasiswa prestasi bagi calon siswa baru.
+                                </p>
+                            </div>
+                            <button type="button" onclick="openNewsModal('Penerimaan Peserta Didik Baru (PPDB) Tahun Ajaran 2026/2027 Resmi Dibuka', 'Berita', '02 November 2026', 'SMK Permata Dunia di bawah naungan YP. Darul Mukhlishin Indonesia resmi membuka pendaftaran peserta didik baru tahun pelajaran 2026/2027. Orang tua dan calon siswa dapat datang langsung ke sekretariat pendaftaran di Pedongkelan Belakang No 46 RT 006/016 Kel. Kapuk, Kec. Cengkareng, Jakarta Barat atau menghubungi nomor WhatsApp 089679700595.')" class="inline-flex items-center gap-2 text-sm font-bold text-permata-green hover:text-permata-greenDark">
+                                <span>Baca Selengkapnya</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 3: Kegiatan -->
+                    <article class="news-card bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg flex flex-col" data-category="Kegiatan">
+                        <div class="relative h-52 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" 
+                                onerror="this.src='https://placehold.co/600x400/111827/FACC15?text=Peringatan+Maulid+Nabi'" 
+                                alt="Kegiatan Keagamaan Sekolah" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                            >
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-permata-black text-permata-yellow text-xs font-extrabold shadow">Kegiatan</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>20 Oktober 2026</span>
+                                </div>
+                                <h3 class="font-heading text-lg font-bold text-permata-black mb-2 line-clamp-2">
+                                    Gebyar Maulid Nabi Muhammad SAW & Santunan Yatim YP. Darul Mukhlishin
+                                </h3>
+                                <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                                    Seluruh civitas akademika SMK Permata Dunia menyelenggarakan peringatan Maulid Nabi dengan hadroh, tausiyah, dan bakti sosial bersama warga sekitar.
+                                </p>
+                            </div>
+                            <button type="button" onclick="openNewsModal('Gebyar Maulid Nabi Muhammad SAW & Santunan Yatim YP. Darul Mukhlishin', 'Kegiatan', '20 Oktober 2026', 'Dalam rangka memperkuat karakter religius dan kepedulian sosial siswa, OSIS dan Rohis SMK Permata Dunia bersama YP. Darul Mukhlishin Indonesia menyelenggarakan peringatan Maulid Nabi Muhammad SAW yang diisi dengan penampilan tim hadroh siswa, pembacaan ayat suci Al-Quran, tausiyah agama, serta santunan yatim piatu di lingkungan Kelurahan Kapuk, Cengkareng.')" class="inline-flex items-center gap-2 text-sm font-bold text-permata-green hover:text-permata-greenDark">
+                                <span>Baca Selengkapnya</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 4: Prestasi -->
+                    <article class="news-card bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg flex flex-col" data-category="Prestasi">
+                        <div class="relative h-52 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" 
+                                onerror="this.src='https://placehold.co/600x400/157A36/FACC15?text=Juara+Business+Plan'" 
+                                alt="Juara Lomba Business Plan" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                            >
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-permata-yellow text-permata-black text-xs font-extrabold shadow">Prestasi</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>08 Oktober 2026</span>
+                                </div>
+                                <h3 class="font-heading text-lg font-bold text-permata-black mb-2 line-clamp-2">
+                                    Juara 2 Lomba Kewirausahaan & Business Plan Pelajar SMK DKI Jakarta
+                                </h3>
+                                <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                                    Inovasi produk digital dan kuliner halal karya siswa jurusan Bisnis Digital dan Pemasaran sukses memukau dewan juri tingkat provinsi.
+                                </p>
+                            </div>
+                            <button type="button" onclick="openNewsModal('Juara 2 Lomba Kewirausahaan & Business Plan Pelajar SMK DKI Jakarta', 'Prestasi', '08 Oktober 2026', 'Siswa-siswi jurusan Bisnis Digital & Pemasaran SMK Permata Dunia berhasil menyabet Juara 2 pada kompetisi Business Plan Pelajar SMK se-DKI Jakarta melalui konsep pemasaran digital produk UMKM lokal Cengkareng.')" class="inline-flex items-center gap-2 text-sm font-bold text-permata-green hover:text-permata-greenDark">
+                                <span>Baca Selengkapnya</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 5: Kegiatan -->
+                    <article class="news-card bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg flex flex-col" data-category="Kegiatan">
+                        <div class="relative h-52 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80" 
+                                onerror="this.src='https://placehold.co/600x400/0E5826/FFFFFF?text=Kunjungan+Industri'" 
+                                alt="Kunjungan Industri Siswa" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                            >
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-permata-black text-permata-yellow text-xs font-extrabold shadow">Kegiatan</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>25 September 2026</span>
+                                </div>
+                                <h3 class="font-heading text-lg font-bold text-permata-black mb-2 line-clamp-2">
+                                    Kunjungan Industri Kelas XI ke Perusahaan Teknologi & Perkantoran Modern
+                                </h3>
+                                <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                                    Memberikan pengalaman langsung kepada siswa mengenai budaya kerja profesional, standar operasional industri, dan persiapan PKL.
+                                </p>
+                            </div>
+                            <button type="button" onclick="openNewsModal('Kunjungan Industri Kelas XI ke Perusahaan Teknologi & Perkantoran Modern', 'Kegiatan', '25 September 2026', 'Sebagai bekal sebelum terjun ke program Praktik Kerja Lapangan (PKL), siswa kelas XI SMK Permata Dunia melaksanakan kunjungan industri ke perusahaan teknologi informasi dan pusat administrasi perkantoran di Jakarta.')" class="inline-flex items-center gap-2 text-sm font-bold text-permata-green hover:text-permata-greenDark">
+                                <span>Baca Selengkapnya</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Item 6: Berita -->
+                    <article class="news-card bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg flex flex-col" data-category="Berita">
+                        <div class="relative h-52 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" 
+                                onerror="this.src='https://placehold.co/600x400/157A36/FFFFFF?text=Workshop+Sertifikasi'" 
+                                alt="Workshop Uji Kompetensi" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                            >
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-permata-green text-white text-xs font-extrabold shadow">Berita</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span>10 September 2026</span>
+                                </div>
+                                <h3 class="font-heading text-lg font-bold text-permata-black mb-2 line-clamp-2">
+                                    Pelatihan & Sertifikasi Kompetensi Digital Bagi Siswa Kelas XII
+                                </h3>
+                                <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                                    Bekerja sama dengan Lembaga Sertifikasi Profesi (LSP), SMK Permata Dunia membekali calon lulusan dengan sertifikat keahlian yang diakui nasional.
+                                </p>
+                            </div>
+                            <button type="button" onclick="openNewsModal('Pelatihan & Sertifikasi Kompetensi Digital Bagi Siswa Kelas XII', 'Berita', '10 September 2026', 'Seluruh siswa kelas XII SMK Permata Dunia mengikuti pembekalan uji kompetensi keahlian bersama asesor profesional untuk memastikan lulusan memiliki sertifikat pendamping ijazah yang kredibel saat melamar pekerjaan.')" class="inline-flex items-center gap-2 text-sm font-bold text-permata-green hover:text-permata-greenDark">
+                                <span>Baca Selengkapnya</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             6. BAGIAN GALERI KEGIATAN SEKOLAH (GRID RAPI & LIGHTBOX PREVIEW)
+        ====================================================================== -->
+        <section id="galeri" class="py-20 bg-gray-50 border-y border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-permata-yellow text-permata-black font-bold text-xs uppercase tracking-wider mb-3">Dokumentasi</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-black mb-4">Galeri Kegiatan Sekolah</h2>
+                    <p class="text-gray-600 text-base sm:text-lg">
+                        Potret aktivitas pembelajaran praktik, pembinaan karakter Islami, ekstrakurikuler, dan kebersamaan siswa SMK Permata Dunia. Klik foto untuk memperbesar.
+                    </p>
+                </div>
+
+                <!-- Grid Galeri 6 Foto -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Foto 1 -->
+                    <div onclick="openLightbox('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85', 'Praktik Laboratorium Komputer & Jaringan SMK Permata Dunia')" class="group relative rounded-3xl overflow-hidden bg-permata-black aspect-[4/3] cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/600x450/157A36/FFFFFF?text=Praktik+Lab+Komputer'" alt="Praktik Lab Komputer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-permata-yellow text-xs font-bold uppercase">Laboratorium</span>
+                            <h4 class="text-white font-heading font-bold text-base">Praktik Komputer & Jaringan</h4>
+                        </div>
+                    </div>
+
+                    <!-- Foto 2 -->
+                    <div onclick="openLightbox('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=85', 'Kegiatan Upacara & Pembinaan Kedisiplinan Siswa')" class="group relative rounded-3xl overflow-hidden bg-permata-black aspect-[4/3] cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/600x450/0E5826/FFFFFF?text=Kegiatan+Siswa'" alt="Kegiatan Siswa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-permata-yellow text-xs font-bold uppercase">Kesiswaan</span>
+                            <h4 class="text-white font-heading font-bold text-base">Pembinaan Karakter & Kedisiplinan</h4>
+                        </div>
+                    </div>
+
+                    <!-- Foto 3 -->
+                    <div onclick="openLightbox('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85', 'Suasana Pembelajaran Interaktif di Ruang Kelas')" class="group relative rounded-3xl overflow-hidden bg-permata-black aspect-[4/3] cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/600x450/157A36/FACC15?text=Pembelajaran+Kelas'" alt="Pembelajaran Kelas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-permata-yellow text-xs font-bold uppercase">Akademik</span>
+                            <h4 class="text-white font-heading font-bold text-base">Pembelajaran Interaktif di Kelas</h4>
+                        </div>
+                    </div>
+
+                    <!-- Foto 4 -->
+                    <div onclick="openLightbox('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85', 'Diskusi Kelompok & Presentasi Proyek Kewirausahaan')" class="group relative rounded-3xl overflow-hidden bg-permata-black aspect-[4/3] cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/600x450/111827/FFFFFF?text=Presentasi+Proyek'" alt="Presentasi Proyek" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-permata-yellow text-xs font-bold uppercase">Kewirausahaan</span>
+                            <h4 class="text-white font-heading font-bold text-base">Presentasi Proyek & Bisnis Siswa</h4>
+                        </div>
+                    </div>
+
+                    <!-- Foto 5 -->
+                    <div onclick="openLightbox('https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1200&q=85', 'Kegiatan Ekstrakurikuler Olahraga & Pramuka')" class="group relative rounded-3xl overflow-hidden bg-permata-black aspect-[4/3] cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/600x450/157A36/FFFFFF?text=Ekstrakurikuler'" alt="Ekstrakurikuler" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-permata-yellow text-xs font-bold uppercase">Ekstrakurikuler</span>
+                            <h4 class="text-white font-heading font-bold text-base">Olahraga, Pramuka & Seni</h4>
+                        </div>
+                    </div>
+
+                    <!-- Foto 6 -->
+                    <div onclick="openLightbox('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=85', 'Seminar Motivasi Karier & Persiapan Dunia Kerja')" class="group relative rounded-3xl overflow-hidden bg-permata-black aspect-[4/3] cursor-pointer shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/600x450/0E5826/FACC15?text=Seminar+Karier'" alt="Seminar Karier" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-permata-yellow text-xs font-bold uppercase">Bursa Kerja Khusus</span>
+                            <h4 class="text-white font-heading font-bold text-base">Seminar Persiapan Dunia Kerja</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             7. BAGIAN KONTAK, LOKASI & FORMULIR PERTANYAAN / PPDB
+        ====================================================================== -->
+        <section id="kontak" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-permata-greenLight text-permata-green font-bold text-xs uppercase tracking-wider mb-3">Hubungi Kami</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-permata-black mb-4">Informasi Kontak & Pendaftaran</h2>
+                    <p class="text-gray-600 text-base sm:text-lg">
+                        Punya pertanyaan seputar jurusan, biaya pendidikan, atau pendaftaran siswa baru (PPDB)? Silakan hubungi kami atau isi formulir di bawah ini.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    
+                    <!-- Kolom Kiri: Kartu Info Kontak & Peta -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-permata-green text-white rounded-3xl p-8 shadow-lg">
+                            <h3 class="font-heading text-xl font-extrabold mb-6 text-permata-yellow">Kontak Resmi Sekolah</h3>
+                            
+                            <div class="space-y-5">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center flex-shrink-0 text-permata-yellow">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-200 uppercase font-semibold">Alamat Sekolah</p>
+                                        <p class="text-sm font-medium leading-relaxed mt-0.5">
+                                            Pedongkelan Belakang No 46 RT 006/016, Kel. Kapuk, Kec. Cengkareng, Jakarta Barat
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center flex-shrink-0 text-permata-yellow">
+                                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-200 uppercase font-semibold">Telepon / WhatsApp</p>
+                                        <a href="https://wa.me/6289679700595" target="_blank" rel="noopener noreferrer" class="text-base font-bold hover:text-permata-yellow transition-colors block mt-0.5">
+                                            0896-7970-0595
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center flex-shrink-0 text-permata-yellow">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-200 uppercase font-semibold">Email Resmi</p>
+                                        <a href="mailto:smkspermatadunia@gmail.com" class="text-sm font-bold hover:text-permata-yellow transition-colors block mt-0.5 break-all">
+                                            smkspermatadunia@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-6 border-t border-white/15">
+                                <a href="https://wa.me/6289679700595?text=Assalamu'alaikum%20Admin%20SMK%20Permata%20Dunia,%20saya%20ingin%20bertanya%20mengenai%20informasi%20sekolah%20dan%20PPDB." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-permata-yellow hover:bg-permata-yellowHover text-permata-black font-bold py-3.5 px-5 rounded-xl transition-all shadow">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    <span>Chat Langsung via WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Embed Google Maps Lokasi Kapuk, Cengkareng, Jakarta Barat -->
+                        <div class="rounded-3xl overflow-hidden border border-gray-200 shadow-sm h-64 bg-gray-100">
+                            <iframe 
+                                title="Peta Lokasi SMK Permata Dunia Cengkareng Jakarta Barat"
+                                src="https://maps.google.com/maps?q=Pedongkelan%20Belakang%20Kapuk%20Cengkareng%20Jakarta%20Barat&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                class="w-full h-full border-0" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan: Formulir Pertanyaan / Pendaftaran -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-gray-50 border border-gray-200 rounded-3xl p-8 sm:p-10 shadow-sm">
+                            <h3 class="font-heading text-2xl font-extrabold text-permata-black mb-2">Kirim Pertanyaan / Minat PPDB</h3>
+                            <p class="text-gray-600 text-sm mb-7">Lengkapi formulir di bawah ini, tim tata usaha dan panitia PPDB kami akan segera menghubungi Anda.</p>
+
+                            <!-- Kotak Pesan Konfirmasi Sukses (Tersembunyi secara default) -->
+                            <div id="form-success-box" class="hidden mb-6 p-5 rounded-2xl bg-permata-greenLight border border-permata-green text-permata-greenDark" role="alert">
+                                <div class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-xl text-permata-green mt-0.5"></i>
+                                    <div>
+                                        <h4 class="font-bold text-base">Pesan Berhasil Terkirim!</h4>
+                                        <p id="form-success-text" class="text-sm mt-1">Terima kasih telah menghubungi SMK Permata Dunia. Admin kami akan segera membalas pesan Anda.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form id="contact-form" novalidate class="space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <!-- Input Nama Lengkap -->
+                                    <div>
+                                        <label for="nama" class="block text-sm font-bold text-permata-black mb-1.5">Nama Lengkap <span class="text-red-600">*</span></label>
+                                        <input type="text" id="nama" name="nama" placeholder="Contoh: Ahmad Fauzi" class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-sm focus:outline-none focus:border-permata-green focus:ring-2 focus:ring-permata-green/20 transition-all">
+                                        <p id="error-nama" class="hidden text-xs text-red-600 font-medium mt-1">Nama lengkap wajib diisi (minimal 3 karakter).</p>
+                                    </div>
+
+                                    <!-- Input No WhatsApp / Email -->
+                                    <div>
+                                        <label for="kontak-pengirim" class="block text-sm font-bold text-permata-black mb-1.5">No. WhatsApp / Email <span class="text-red-600">*</span></label>
+                                        <input type="text" id="kontak-pengirim" name="kontak" placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-sm focus:outline-none focus:border-permata-green focus:ring-2 focus:ring-permata-green/20 transition-all">
+                                        <p id="error-kontak" class="hidden text-xs text-red-600 font-medium mt-1">Nomor WhatsApp atau alamat email wajib diisi dengan benar.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Pilihan Keperluan / Subjek -->
+                                <div>
+                                    <label for="subjek" class="block text-sm font-bold text-permata-black mb-1.5">Keperluan / Topik <span class="text-red-600">*</span></label>
+                                    <select id="subjek" name="subjek" class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-sm focus:outline-none focus:border-permata-green focus:ring-2 focus:ring-permata-green/20 transition-all">
+                                        <option value="">-- Pilih Keperluan Anda --</option>
+                                        <option value="Pendaftaran Siswa Baru (PPDB)">Pendaftaran Siswa Baru (PPDB)</option>
+                                        <option value="Informasi Jurusan & Biaya">Informasi Jurusan & Biaya Pendidikan</option>
+                                        <option value="Kerja Sama Industri / PKL">Kerja Sama Industri / PKL</option>
+                                        <option value="Pertanyaan Umum">Pertanyaan Umum Lainnya</option>
+                                    </select>
+                                    <p id="error-subjek" class="hidden text-xs text-red-600 font-medium mt-1">Silakan pilih salah satu topik keperluan.</p>
+                                </div>
+
+                                <!-- Input Pesan -->
+                                <div>
+                                    <label for="pesan" class="block text-sm font-bold text-permata-black mb-1.5">Isi Pesan atau Pertanyaan <span class="text-red-600">*</span></label>
+                                    <textarea id="pesan" name="pesan" rows="4" placeholder="Tuliskan pertanyaan Anda secara detail di sini..." class="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-sm focus:outline-none focus:border-permata-green focus:ring-2 focus:ring-permata-green/20 transition-all"></textarea>
+                                    <p id="error-pesan" class="hidden text-xs text-red-600 font-medium mt-1">Pesan wajib diisi (minimal 10 karakter).</p>
+                                </div>
+
+                                <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-permata-green hover:bg-permata-greenDark text-white font-bold px-8 py-3.5 rounded-xl shadow-md transition-all duration-200">
+                                    <span>Kirim Pesan Sekarang</span>
+                                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================================
+         8. FOOTER LENGKAP
+    ====================================================================== -->
+    <footer class="bg-permata-black text-gray-300 pt-16 pb-8 border-t-4 border-permata-yellow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+                
+                <!-- Kolom 1: Identitas Sekolah -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-permata-green flex items-center justify-center text-permata-yellow font-heading font-extrabold text-lg">
+                            PD
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold tracking-wider text-permata-yellow uppercase">YP. Darul Mukhlishin Indonesia</span>
+                            <span class="block font-heading text-lg font-extrabold text-white">SMK PERMATA DUNIA</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-5">
+                        Sekolah Menengah Kejuruan yang berkomitmen mencetak generasi profesional, terampil, berdaya saing global, dan berlandaskan akhlakul karimah.
+                    </p>
+                    <!-- Tautan Media Sosial -->
+                    <div class="flex items-center gap-3">
+                        <a href="#" aria-label="Instagram SMK Permata Dunia" class="w-9 h-9 rounded-lg bg-gray-800 hover:bg-permata-yellow hover:text-permata-black flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Facebook SMK Permata Dunia" class="w-9 h-9 rounded-lg bg-gray-800 hover:bg-permata-yellow hover:text-permata-black flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube SMK Permata Dunia" class="w-9 h-9 rounded-lg bg-gray-800 hover:bg-permata-yellow hover:text-permata-black flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://wa.me/6289679700595" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp SMK Permata Dunia" class="w-9 h-9 rounded-lg bg-gray-800 hover:bg-permata-green hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kolom 2: Tautan Cepat -->
+                <div>
+                    <h4 class="font-heading text-white font-bold text-base mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#beranda" class="hover:text-permata-yellow transition-colors">Beranda</a></li>
+                        <li><a href="#profil" class="hover:text-permata-yellow transition-colors">Profil & Visi Misi</a></li>
+                        <li><a href="#program" class="hover:text-permata-yellow transition-colors">Kompetensi Keahlian</a></li>
+                        <li><a href="#berita" class="hover:text-permata-yellow transition-colors">Berita & Prestasi</a></li>
+                        <li><a href="#galeri" class="hover:text-permata-yellow transition-colors">Galeri Kegiatan</a></li>
+                        <li><a href="#kontak" class="hover:text-permata-yellow transition-colors">Info PPDB & Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Jam Operasional -->
+                <div>
+                    <h4 class="font-heading text-white font-bold text-base mb-4">Jam Operasional</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex justify-between border-b border-gray-800 pb-2">
+                            <span class="text-gray-400">Senin - Kamis</span>
+                            <span class="text-white font-semibold">07.00 - 15.30 WIB</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-800 pb-2">
+                            <span class="text-gray-400">Jumat</span>
+                            <span class="text-white font-semibold">07.00 - 11.30 WIB</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-800 pb-2">
+                            <span class="text-gray-400">Sabtu (Ekskul/PPDB)</span>
+                            <span class="text-white font-semibold">08.00 - 13.00 WIB</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-gray-400">Minggu / Hari Libur</span>
+                            <span class="text-permata-yellow font-semibold">Tutup</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 4: Alamat & Kontak -->
+                <div>
+                    <h4 class="font-heading text-white font-bold text-base mb-4">Alamat & Kontak</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-map-pin text-permata-yellow mt-1"></i>
+                            <span>Pedongkelan Belakang No 46 RT 006/016 Kel. Kapuk, Kec. Cengkareng, Jakarta Barat</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-phone text-permata-yellow"></i>
+                            <a href="tel:089679700595" class="hover:text-white">0896-7970-0595</a>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-envelope text-permata-yellow"></i>
+                            <a href="mailto:smkspermatadunia@gmail.com" class="hover:text-white break-all">smkspermatadunia@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Hak Cipta -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <p>&copy; 2026 <strong class="text-gray-300">SMK PERMATA DUNIA</strong> - YP. Darul Mukhlishin Indonesia. Hak Cipta Dilindungi.</p>
+                <p>Kapuk, Cengkareng - Jakarta Barat</p>
+            </div>
         </div>
-        <div class="stat">
-          <strong>Terintegrasi</strong>
-          <span>Satu lingkungan pendidikan</span>
+    </footer>
+
+    <!-- =====================================================================
+         MODAL DETAIL BERITA & LIGHTBOX GALERI (INTERAKTIF)
+    ====================================================================== -->
+    <!-- Modal Detail Berita -->
+    <div id="news-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" aria-modal="true" role="dialog">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative animate-[fadeIn_0.2s_ease-out]">
+            <button type="button" onclick="closeNewsModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center" aria-label="Tutup modal berita">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-3">
+                <span id="modal-news-category" class="px-3 py-1 rounded-lg bg-permata-green text-white text-xs font-bold">Kategori</span>
+                <span id="modal-news-date" class="text-xs text-gray-500">Tanggal</span>
+            </div>
+            <h3 id="modal-news-title" class="font-heading text-xl sm:text-2xl font-extrabold text-permata-black mb-4">Judul Berita</h3>
+            <p id="modal-news-body" class="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">Isi lengkap berita...</p>
+            <div class="text-right">
+                <button type="button" onclick="closeNewsModal()" class="px-5 py-2.5 rounded-xl bg-permata-black text-white text-sm font-bold hover:bg-gray-800">Tutup</button>
+            </div>
         </div>
-        <div class="stat">
-          <strong>Berkarakter</strong>
-          <span>Fokus pada potensi peserta didik</span>
-        </div>
-      </div>
     </div>
 
-    <section id="profil">
-      <div class="container about-grid">
-        <div class="about-panel">
-          <span class="eyebrow"
-            style="color:#124b3b;border-color:#124b3b33">
-            Mengenal Kami
-          </span>
-          <h3>Pendidikan adalah investasi masa depan.</h3>
-          <p>
-            Yayasan Pendidikan Generasi Bangsa menaungi empat jenjang
-            pendidikan untuk memberikan layanan belajar yang berkelanjutan.
-            Kami berupaya menciptakan lingkungan belajar yang aman,
-            inklusif, kreatif, dan berorientasi pada perkembangan siswa.
-          </p>
+    <!-- Lightbox Preview Foto Galeri -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeLightbox()" aria-modal="true" role="dialog">
+        <div class="max-w-4xl w-full relative" onclick="event.stopPropagation()">
+            <button type="button" onclick="closeLightbox()" class="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/15 hover:bg-permata-yellow hover:text-permata-black text-white flex items-center justify-center transition-colors" aria-label="Tutup pratinjau gambar">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Pratinjau Galeri" class="w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl bg-black">
+            <p id="lightbox-caption" class="text-center text-white font-heading font-semibold text-sm sm:text-base mt-4"></p>
         </div>
-
-        <div class="values">
-          <div class="value-item">
-            <span class="value-icon">◎</span>
-            <div>
-              <h3>Visi Yayasan</h3>
-              <p>
-                Menjadi lembaga pendidikan yang unggul dalam prestasi,
-                karakter, keterampilan, dan kepedulian sosial.
-              </p>
-            </div>
-          </div>
-          <div class="value-item">
-            <span class="value-icon">✓</span>
-            <div>
-              <h3>Misi Yayasan</h3>
-              <p>
-                Menyelenggarakan pembelajaran berkualitas dan mengembangkan
-                potensi setiap peserta didik.
-              </p>
-            </div>
-          </div>
-          <div class="value-item">
-            <span class="value-icon">♡</span>
-            <div>
-              <h3>Nilai Kami</h3>
-              <p>
-                Integritas, disiplin, gotong royong, kreativitas,
-                dan tanggung jawab.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="schools" id="sekolah">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">Unit Pendidikan</span>
-          <h2 class="section-title">Pilih Jenjang Pendidikan</h2>
-          <p>
-            Kenali program dan layanan pendidikan sesuai dengan tahap
-            perkembangan serta kebutuhan peserta didik.
-          </p>
-        </div>
-
-        <div class="school-grid">
-          <article class="school-card">
-            <div class="school-icon">🧸</div>
-            <h3>TK</h3>
-            <p>
-              Mengembangkan kreativitas, kemandirian, karakter,
-              dan kemampuan dasar anak melalui bermain sambil belajar.
-            </p>
-            <a class="text-link"
-              href="#kontak"
-              data-school="RA AL MUKHLSIHIN">Informasi TK →</a>
-          </article>
-
-          <article class="school-card">
-            <div class="school-icon">📚</div>
-            <h3>SDI AL MUKHLISHIN</h3>
-            <p>
-              Memperkuat literasi, numerasi, karakter, dan
-              keterampilan dasar untuk mendukung tumbuh kembang siswa.
-            </p>
-            <a class="text-link"
-              href="#kontak"
-              data-school="SD">Informasi SD →</a>
-          </article>
-
-          <article class="school-card">
-            <div class="school-icon">🔬</div>
-            <h3>SMP DARUL MUKHLISHIN</h3>
-            <p>
-              Mendorong pemikiran kritis, eksplorasi minat,
-              prestasi akademik, dan pengembangan diri remaja.
-            </p>
-            <a class="text-link"
-              href="#kontak"
-              data-school="SMP">Informasi SMP →</a>
-          </article>
-
-          <article class="school-card">
-            <div class="school-icon">💻</div>
-            <h3>SMK PERMATA DUNIA</h3>
-            <p>
-              Membekali siswa dengan keterampilan kejuruan,
-              pengalaman praktik, dan kesiapan memasuki dunia kerja.
-            </p>
-            <a class="text-link"
-              href="#kontak"
-              data-school="SMK">Informasi SMK →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="berita">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">Kabar Sekolah</span>
-          <h2 class="section-title">Berita dan Kegiatan Terbaru</h2>
-          <p>
-            Informasi kegiatan, prestasi siswa, agenda, dan
-            pengumuman dari lingkungan yayasan.
-          </p>
-        </div>
-
-        <div class="news-grid">
-          <article class="news-card">
-            <div class="news-image">🏆</div>
-            <div class="news-body">
-              <small>PRESTASI</small>
-              <h3>Apresiasi untuk Siswa Berprestasi</h3>
-              <p>
-                Ruang untuk mengumumkan prestasi akademik dan
-                nonakademik siswa dari seluruh unit sekolah.
-              </p>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <div class="news-image">🌱</div>
-            <div class="news-body">
-              <small>KEGIATAN</small>
-              <h3>Menumbuhkan Kepedulian Lingkungan</h3>
-              <p>
-                Publikasikan kegiatan kebersihan, penghijauan,
-                dan pembentukan karakter peduli lingkungan.
-              </p>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <div class="news-image">📢</div>
-            <div class="news-body">
-              <small>PENGUMUMAN</small>
-              <h3>Informasi Penerimaan Peserta Didik</h3>
-              <p>
-                Sampaikan jadwal, persyaratan, dan prosedur
-                pendaftaran sesuai pengumuman resmi sekolah.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="ppdb" id="ppdb">
-      <div class="container">
-        <span class="eyebrow">Penerimaan Peserta Didik Baru</span>
-        <h2>Mulai Perjalanan Pendidikan Bersama Kami</h2>
-        <p>
-          Hubungi petugas yayasan untuk mendapatkan informasi
-          persyaratan, biaya pendidikan, jadwal, dan prosedur
-          pendaftaran pada jenjang yang Anda pilih.
-        </p>
-        <a class="button" id="ppdbButton" href="#kontak">
-          Tanya Informasi PPDB →
-        </a>
-      </div>
-    </section>
-
-    <section id="kontak">
-      <div class="container">
-        <div class="section-heading">
-          <span class="tag">Hubungi Kami</span>
-          <h2 class="section-title">Kami Siap Membantu</h2>
-          <p>
-            Silakan hubungi kantor yayasan untuk informasi lebih lanjut
-            tentang unit pendidikan dan pendaftaran.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info">
-            <div class="contact-item">
-              <h3>📍 Alamat Yayasan</h3>
-              <p>Pedongkelan Belakang No 46.</p>
-            </div>
-            <div class="contact-item">
-              <h3>☎️ Telepon / WhatsApp</h3>
-              <p>089679700595.</p>
-            </div>
-            <div class="contact-item">
-              <h3>✉️ Email</h3>
-              <p>ypdmi@gmail.com .</p>
-            </div>
-            <div class="contact-item">
-              <h3>🕒 Jam Pelayanan</h3>
-              <p>Senin–Jumat, 06:30 - 17:30 .</p>
-            </div>
-          </div>
-
-          <div class="contact-note">
-            <h3>Butuh informasi sekolah?</h3>
-            <p>
-              Klik tombol berikut untuk menghubungi petugas yayasan
-              melalui WhatsApp. Pilih jenjang yang ingin ditanyakan.
-            </p>
-            <a class="button" id="contactButton" href="#kontak">
-              Hubungi Yayasan →
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>
-        © <span id="year"></span>
-        Yayasan Pendidikan Generasi Bangsa.
-        Seluruh hak cipta dilindungi.
-      </p>
-      <p>Mendidik dengan hati, membangun masa depan.</p>
     </div>
-  </footer>
 
-  <script>
-    // GANTI dengan nomor WhatsApp resmi yayasan.
-    // Gunakan kode negara tanpa tanda +, spasi, atau strip.
-    const NOMOR_WHATSAPP = "6281234567890";
+    <!-- =====================================================================
+         JAVASCRIPT MURNI (VANILLA JS) UNTUK INTERAKTIVITAS HALAMAN
+    ====================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. TOGGLE MENU HAMBURGER MOBILE / TABLET
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+                    
+                    // Ubah ikon hamburger menjadi silang (X) saat terbuka
+                    if (isHidden) {
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-xmark');
+                    } else {
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                });
 
-    menuToggle.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
-      );
-      menuToggle.textContent = isOpen ? "✕" : "☰";
-    });
+                // Tutup menu mobile otomatis saat tautan diklik
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
 
-    // Tutup menu setelah pengunjung memilih navigasi.
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Buka menu navigasi");
-        menuToggle.textContent = "☰";
-      });
-    });
+            // 2. EFEK BAYANGAN NAVBAR SAAT HALAMAN DI-SCROLL
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-md');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                }
+            });
 
-    // Buat tautan WhatsApp dengan pesan yang sesuai.
-    function buatLinkWhatsApp(pesan) {
-      return "https://wa.me/" + NOMOR_WHATSAPP +
-        "?text=" + encodeURIComponent(pesan);
-    }
+            // 3. ANIMASI STATISTIK COUNTER SAAT TERLIHAT DI LAYAR
+            const counters = document.querySelectorAll('.counter');
+            const statsSection = document.getElementById('stats-section');
+            let hasCounted = false;
 
-    document.getElementById("ppdbButton").href =
-      buatLinkWhatsApp(
-        "Halo, saya ingin bertanya tentang PPDB Yayasan Pendidikan Generasi Bangsa."
-      );
+            const runCounters = () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 1600; // durasi animasi dalam ms
+                    const stepTime = 25;
+                    const steps = duration / stepTime;
+                    const increment = target / steps;
+                    let current = 0;
 
-    document.getElementById("contactButton").href =
-      buatLinkWhatsApp(
-        "Halo, saya ingin mendapatkan informasi tentang sekolah di yayasan."
-      );
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.innerText = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = Math.ceil(current);
+                        }
+                    }, stepTime);
+                });
+            };
 
-    // Pesan otomatis sesuai jenjang yang dipilih.
-    document.querySelectorAll("[data-school]").forEach(function (link) {
-      link.href = buatLinkWhatsApp(
-        "Halo, saya ingin mendapatkan informasi tentang jenjang " +
-        link.dataset.school +
-        " di Yayasan Pendidikan Generasi Bangsa."
-      );
-    });
+            if (statsSection && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !hasCounted) {
+                            hasCounted = true;
+                            runCounters();
+                        }
+                    });
+                }, { threshold: 0.3 });
+                observer.observe(statsSection);
+            } else {
+                runCounters();
+            }
 
-    // Tahun copyright otomatis mengikuti tahun sekarang.
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+            // 4. FILTER KATEGORI BERITA & PRESTASI
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const newsCards = document.querySelectorAll('.news-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Reset gaya semua tombol filter
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-permata-green', 'text-white', 'shadow-sm', 'font-bold');
+                        btn.classList.add('bg-gray-100', 'text-gray-700', 'font-semibold');
+                    });
+
+                    // Aktifkan tombol yang diklik
+                    button.classList.remove('bg-gray-100', 'text-gray-700', 'font-semibold');
+                    button.classList.add('bg-permata-green', 'text-white', 'shadow-sm', 'font-bold');
+
+                    const selectedCategory = button.getAttribute('data-filter');
+
+                    // Tampilkan atau sembunyikan kartu berdasarkan kategori
+                    newsCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                            card.classList.remove('hidden-item');
+                        } else {
+                            card.classList.add('hidden-item');
+                        }
+                    });
+                });
+            });
+
+            // 5. VALIDASI FORMULIR KONTAK & PESAN KONFIRMASI
+            const contactForm = document.getElementById('contact-form');
+            const successBox = document.getElementById('form-success-box');
+            const successText = document.getElementById('form-success-text');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // Ambil elemen input dan error
+                    const namaInput = document.getElementById('nama');
+                    const kontakInput = document.getElementById('kontak-pengirim');
+                    const subjekInput = document.getElementById('subjek');
+                    const pesanInput = document.getElementById('pesan');
+
+                    const errorNama = document.getElementById('error-nama');
+                    const errorKontak = document.getElementById('error-kontak');
+                    const errorSubjek = document.getElementById('error-subjek');
+                    const errorPesan = document.getElementById('error-pesan');
+
+                    let isValid = true;
+
+                    // Validasi Nama (min 3 karakter)
+                    if (namaInput.value.trim().length < 3) {
+                        errorNama.classList.remove('hidden');
+                        namaInput.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        errorNama.classList.add('hidden');
+                        namaInput.classList.remove('border-red-500');
+                    }
+
+                    // Validasi Kontak WA / Email (min 6 karakter)
+                    if (kontakInput.value.trim().length < 6) {
+                        errorKontak.classList.remove('hidden');
+                        kontakInput.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        errorKontak.classList.add('hidden');
+                        kontakInput.classList.remove('border-red-500');
+                    }
+
+                    // Validasi Subjek / Keperluan
+                    if (subjekInput.value === '') {
+                        errorSubjek.classList.remove('hidden');
+                        subjekInput.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        errorSubjek.classList.add('hidden');
+                        subjekInput.classList.remove('border-red-500');
+                    }
+
+                    // Validasi Isi Pesan (min 10 karakter)
+                    if (pesanInput.value.trim().length < 10) {
+                        errorPesan.classList.remove('hidden');
+                        pesanInput.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        errorPesan.classList.add('hidden');
+                        pesanInput.classList.remove('border-red-500');
+                    }
+
+                    // Jika semua valid, tampilkan kotak pesan konfirmasi sukses
+                    if (isValid) {
+                        successText.innerHTML = `Terima kasih <strong>${namaInput.value.trim()}</strong>. Pertanyaan Anda terkait <strong>${subjekInput.value}</strong> telah kami terima. Tim SMK Permata Dunia akan segera menghubungi nomor/email <strong>${kontakInput.value.trim()}</strong>.`;
+                        successBox.classList.remove('hidden');
+                        contactForm.reset();
+                        successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            }
+        });
+
+        // 6. FUNGSI MODAL BERITA & LIGHTBOX GALERI (GLOBAL)
+        function openNewsModal(title, category, date, content) {
+            document.getElementById('modal-news-title').innerText = title;
+            document.getElementById('modal-news-category').innerText = category;
+            document.getElementById('modal-news-date').innerText = date;
+            document.getElementById('modal-news-body').innerText = content;
+            document.getElementById('news-modal').classList.remove('hidden');
+        }
+
+        function closeNewsModal() {
+            document.getElementById('news-modal').classList.add('hidden');
+        }
+
+        function openLightbox(imgSrc, captionText) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-caption').innerText = captionText;
+            document.getElementById('gallery-lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('gallery-lightbox').classList.add('hidden');
+        }
+
+        // Tutup modal/lightbox dengan tombol Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeNewsModal();
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
