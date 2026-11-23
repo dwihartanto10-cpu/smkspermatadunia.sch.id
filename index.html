@@ -1,0 +1,931 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website resmi Yayasan Pendidikan Generasi Bangsa. Informasi TK, SD, SMP, SMK, kegiatan sekolah, dan PPDB.">
+  <title>Yayasan Pendidikan Generasi Bangsa</title>
+
+  <style>
+    :root {
+      --primary: #124b3b;
+      --primary-light: #1c6a52;
+      --accent: #e9b949;
+      --cream: #f7f7f0;
+      --white: #ffffff;
+      --text: #24342e;
+      --muted: #64736c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--white);
+      border-bottom: 1px solid #e5eae5;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: white;
+      border-radius: 12px;
+      font-size: 23px;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-light);
+    }
+
+    .nav-cta, .button {
+      display: inline-block;
+      background: var(--accent);
+      color: #24342e;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      font-size: 27px;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 15%, #39785d 0, transparent 35%),
+        linear-gradient(125deg, #103c31, #176249);
+      color: white;
+      padding: 95px 0 90px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid #ffffff55;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 57px);
+      line-height: 1.13;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      color: #e0eee7;
+      max-width: 580px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button-outline {
+      display: inline-block;
+      padding: 11px 20px;
+      border: 1px solid #ffffff88;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      min-height: 330px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #f0d995, #d2e5cf);
+      color: var(--primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+      box-shadow: 0 25px 70px #061f1733;
+    }
+
+    .hero-visual .symbol {
+      font-size: 90px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .hero-visual h2 {
+      font-size: 25px;
+      line-height: 1.3;
+    }
+
+    .hero-visual p {
+      color: #315447;
+      margin: 8px 0 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: -1px;
+      padding: 28px 0;
+      background: var(--cream);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary);
+      font-size: 25px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-heading {
+      max-width: 660px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .section-heading .tag {
+      color: var(--primary-light);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      font-size: 12px;
+    }
+
+    h2.section-title {
+      font-size: clamp(27px, 4vw, 37px);
+      color: var(--primary);
+      line-height: 1.25;
+      margin: 10px 0 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-panel {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 34px;
+      border-left: 5px solid var(--accent);
+    }
+
+    .about-panel h3 {
+      color: var(--primary);
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+    }
+
+    .values {
+      display: grid;
+      gap: 16px;
+    }
+
+    .value-item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .value-icon {
+      flex-shrink: 0;
+      background: #e8f2e9;
+      color: var(--primary);
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 21px;
+    }
+
+    .value-item h3 {
+      font-size: 17px;
+      margin-bottom: 3px;
+    }
+
+    .value-item p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .schools {
+      background: var(--cream);
+    }
+
+    .school-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .school-card {
+      background: white;
+      border: 1px solid #e7ebe5;
+      padding: 25px 21px;
+      border-radius: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .school-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px #123b2710;
+    }
+
+    .school-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      background: #e8f2e9;
+      border-radius: 14px;
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .school-card h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .school-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .text-link {
+      color: var(--primary-light);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .news-card {
+      border: 1px solid #e6eae5;
+      border-radius: 15px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .news-image {
+      height: 145px;
+      display: grid;
+      place-items: center;
+      font-size: 47px;
+      background: linear-gradient(140deg, #e6eedc, #c8e1d1);
+    }
+
+    .news-body {
+      padding: 21px;
+    }
+
+    .news-body small {
+      color: var(--primary-light);
+      font-weight: 700;
+    }
+
+    .news-body h3 {
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 8px 0;
+    }
+
+    .news-body p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .ppdb {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+    }
+
+    .ppdb h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.25;
+      margin-bottom: 15px;
+    }
+
+    .ppdb p {
+      color: #d7e8df;
+      max-width: 600px;
+      margin: 0 auto 26px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .contact-item {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .contact-item h3 {
+      color: var(--primary);
+      font-size: 16px;
+    }
+
+    .contact-item p {
+      color: var(--muted);
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-note {
+      border: 1px solid #e4e9e2;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    .contact-note h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .contact-note p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #0b2d24;
+      color: #e1eee7;
+      padding: 28px 0;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer p + p {
+      margin-top: 5px;
+      color: #b8cfc3;
+    }
+
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 22px 5%;
+        background: white;
+        border-bottom: 1px solid #e5eae5;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 250px;
+      }
+
+      .school-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 65px 0;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .stats {
+        gap: 8px;
+        padding: 20px 0;
+      }
+
+      .stat strong {
+        font-size: 20px;
+      }
+
+      .stat span {
+        font-size: 11px;
+      }
+
+      .school-grid,
+      .news-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        padding: 22px;
+      }
+
+      .about-panel {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar container" aria-label="Navigasi utama">
+      <a href="#beranda" class="brand">
+        <span class="brand-icon">✦</span>
+        <span>
+          YAYASAN PENDIDIKAN DARUL MUKHLSIHIN INDONESIA
+          <small>YPDMI</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle"
+        id="menuToggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#sekolah">Sekolah</a></li>
+        <li><a href="#berita">Berita</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+        <li><a class="nav-cta" href="#ppdb">Info PPDB</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-content">
+        <div>
+          <span class="eyebrow">Pendidikan untuk Masa Depan</span>
+          <h1>Membangun Generasi Cerdas, Berkarakter, dan Berprestasi</h1>
+          <p>
+            Yayasan Pendidikan Generasi Bangsa berkomitmen mendampingi
+            setiap peserta didik untuk tumbuh, berkarya, dan meraih masa
+            depan melalui pendidikan berkualitas dari TK hingga SMK.
+          </p>
+          <div class="hero-buttons">
+            <a class="button" href="#sekolah">Jelajahi Sekolah →</a>
+            <a class="button-outline" href="#profil">Tentang Yayasan</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div>
+            <span class="eyebrow" style="border-color:#31544755">
+              Empat Jenjang Pendidikan
+            </span>
+            <div class="symbol">🎓</div>
+          </div>
+          <div>
+            <h2>Satu Yayasan, Banyak Peluang</h2>
+            <p>Belajar · Bertumbuh · Berprestasi</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="container" style="display:contents">
+        <div class="stat">
+          <strong>4 Jenjang</strong>
+          <span>RA AL MUKHLSIHIN, SDI AL MUKHLSIHIN, SMP DARUL MUKHLISHIN, dan SMK PERMATA DUNIA</span>
+        </div>
+        <div class="stat">
+          <strong>Terintegrasi</strong>
+          <span>Satu lingkungan pendidikan</span>
+        </div>
+        <div class="stat">
+          <strong>Berkarakter</strong>
+          <span>Fokus pada potensi peserta didik</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="profil">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <span class="eyebrow"
+            style="color:#124b3b;border-color:#124b3b33">
+            Mengenal Kami
+          </span>
+          <h3>Pendidikan adalah investasi masa depan.</h3>
+          <p>
+            Yayasan Pendidikan Generasi Bangsa menaungi empat jenjang
+            pendidikan untuk memberikan layanan belajar yang berkelanjutan.
+            Kami berupaya menciptakan lingkungan belajar yang aman,
+            inklusif, kreatif, dan berorientasi pada perkembangan siswa.
+          </p>
+        </div>
+
+        <div class="values">
+          <div class="value-item">
+            <span class="value-icon">◎</span>
+            <div>
+              <h3>Visi Yayasan</h3>
+              <p>
+                Menjadi lembaga pendidikan yang unggul dalam prestasi,
+                karakter, keterampilan, dan kepedulian sosial.
+              </p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon">✓</span>
+            <div>
+              <h3>Misi Yayasan</h3>
+              <p>
+                Menyelenggarakan pembelajaran berkualitas dan mengembangkan
+                potensi setiap peserta didik.
+              </p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon">♡</span>
+            <div>
+              <h3>Nilai Kami</h3>
+              <p>
+                Integritas, disiplin, gotong royong, kreativitas,
+                dan tanggung jawab.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="schools" id="sekolah">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">Unit Pendidikan</span>
+          <h2 class="section-title">Pilih Jenjang Pendidikan</h2>
+          <p>
+            Kenali program dan layanan pendidikan sesuai dengan tahap
+            perkembangan serta kebutuhan peserta didik.
+          </p>
+        </div>
+
+        <div class="school-grid">
+          <article class="school-card">
+            <div class="school-icon">🧸</div>
+            <h3>TK</h3>
+            <p>
+              Mengembangkan kreativitas, kemandirian, karakter,
+              dan kemampuan dasar anak melalui bermain sambil belajar.
+            </p>
+            <a class="text-link"
+              href="#kontak"
+              data-school="RA AL MUKHLSIHIN">Informasi TK →</a>
+          </article>
+
+          <article class="school-card">
+            <div class="school-icon">📚</div>
+            <h3>SDI AL MUKHLISHIN</h3>
+            <p>
+              Memperkuat literasi, numerasi, karakter, dan
+              keterampilan dasar untuk mendukung tumbuh kembang siswa.
+            </p>
+            <a class="text-link"
+              href="#kontak"
+              data-school="SD">Informasi SD →</a>
+          </article>
+
+          <article class="school-card">
+            <div class="school-icon">🔬</div>
+            <h3>SMP DARUL MUKHLISHIN</h3>
+            <p>
+              Mendorong pemikiran kritis, eksplorasi minat,
+              prestasi akademik, dan pengembangan diri remaja.
+            </p>
+            <a class="text-link"
+              href="#kontak"
+              data-school="SMP">Informasi SMP →</a>
+          </article>
+
+          <article class="school-card">
+            <div class="school-icon">💻</div>
+            <h3>SMK PERMATA DUNIA</h3>
+            <p>
+              Membekali siswa dengan keterampilan kejuruan,
+              pengalaman praktik, dan kesiapan memasuki dunia kerja.
+            </p>
+            <a class="text-link"
+              href="#kontak"
+              data-school="SMK">Informasi SMK →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="berita">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">Kabar Sekolah</span>
+          <h2 class="section-title">Berita dan Kegiatan Terbaru</h2>
+          <p>
+            Informasi kegiatan, prestasi siswa, agenda, dan
+            pengumuman dari lingkungan yayasan.
+          </p>
+        </div>
+
+        <div class="news-grid">
+          <article class="news-card">
+            <div class="news-image">🏆</div>
+            <div class="news-body">
+              <small>PRESTASI</small>
+              <h3>Apresiasi untuk Siswa Berprestasi</h3>
+              <p>
+                Ruang untuk mengumumkan prestasi akademik dan
+                nonakademik siswa dari seluruh unit sekolah.
+              </p>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-image">🌱</div>
+            <div class="news-body">
+              <small>KEGIATAN</small>
+              <h3>Menumbuhkan Kepedulian Lingkungan</h3>
+              <p>
+                Publikasikan kegiatan kebersihan, penghijauan,
+                dan pembentukan karakter peduli lingkungan.
+              </p>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-image">📢</div>
+            <div class="news-body">
+              <small>PENGUMUMAN</small>
+              <h3>Informasi Penerimaan Peserta Didik</h3>
+              <p>
+                Sampaikan jadwal, persyaratan, dan prosedur
+                pendaftaran sesuai pengumuman resmi sekolah.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ppdb" id="ppdb">
+      <div class="container">
+        <span class="eyebrow">Penerimaan Peserta Didik Baru</span>
+        <h2>Mulai Perjalanan Pendidikan Bersama Kami</h2>
+        <p>
+          Hubungi petugas yayasan untuk mendapatkan informasi
+          persyaratan, biaya pendidikan, jadwal, dan prosedur
+          pendaftaran pada jenjang yang Anda pilih.
+        </p>
+        <a class="button" id="ppdbButton" href="#kontak">
+          Tanya Informasi PPDB →
+        </a>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="container">
+        <div class="section-heading">
+          <span class="tag">Hubungi Kami</span>
+          <h2 class="section-title">Kami Siap Membantu</h2>
+          <p>
+            Silakan hubungi kantor yayasan untuk informasi lebih lanjut
+            tentang unit pendidikan dan pendaftaran.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <h3>📍 Alamat Yayasan</h3>
+              <p>Pedongkelan Belakang No 46.</p>
+            </div>
+            <div class="contact-item">
+              <h3>☎️ Telepon / WhatsApp</h3>
+              <p>089679700595.</p>
+            </div>
+            <div class="contact-item">
+              <h3>✉️ Email</h3>
+              <p>ypdmi@gmail.com .</p>
+            </div>
+            <div class="contact-item">
+              <h3>🕒 Jam Pelayanan</h3>
+              <p>Senin–Jumat, 06:30 - 17:30 .</p>
+            </div>
+          </div>
+
+          <div class="contact-note">
+            <h3>Butuh informasi sekolah?</h3>
+            <p>
+              Klik tombol berikut untuk menghubungi petugas yayasan
+              melalui WhatsApp. Pilih jenjang yang ingin ditanyakan.
+            </p>
+            <a class="button" id="contactButton" href="#kontak">
+              Hubungi Yayasan →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        © <span id="year"></span>
+        Yayasan Pendidikan Generasi Bangsa.
+        Seluruh hak cipta dilindungi.
+      </p>
+      <p>Mendidik dengan hati, membangun masa depan.</p>
+    </div>
+  </footer>
+
+  <script>
+    // GANTI dengan nomor WhatsApp resmi yayasan.
+    // Gunakan kode negara tanpa tanda +, spasi, atau strip.
+    const NOMOR_WHATSAPP = "6281234567890";
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Tutup menu setelah pengunjung memilih navigasi.
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Buat tautan WhatsApp dengan pesan yang sesuai.
+    function buatLinkWhatsApp(pesan) {
+      return "https://wa.me/" + NOMOR_WHATSAPP +
+        "?text=" + encodeURIComponent(pesan);
+    }
+
+    document.getElementById("ppdbButton").href =
+      buatLinkWhatsApp(
+        "Halo, saya ingin bertanya tentang PPDB Yayasan Pendidikan Generasi Bangsa."
+      );
+
+    document.getElementById("contactButton").href =
+      buatLinkWhatsApp(
+        "Halo, saya ingin mendapatkan informasi tentang sekolah di yayasan."
+      );
+
+    // Pesan otomatis sesuai jenjang yang dipilih.
+    document.querySelectorAll("[data-school]").forEach(function (link) {
+      link.href = buatLinkWhatsApp(
+        "Halo, saya ingin mendapatkan informasi tentang jenjang " +
+        link.dataset.school +
+        " di Yayasan Pendidikan Generasi Bangsa."
+      );
+    });
+
+    // Tahun copyright otomatis mengikuti tahun sekarang.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
